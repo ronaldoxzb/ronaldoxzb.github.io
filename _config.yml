@@ -97,8 +97,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: oranges
-# theme: cactus
+# theme: oranges
+theme: cactus
 
 feed:
   type: atom
