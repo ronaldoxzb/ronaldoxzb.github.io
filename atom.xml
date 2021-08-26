@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>RONALDOXZB</title>
+  <icon>http://ronaldoxzb.cn/icon.png</icon>
+  
+  <link href="http://ronaldoxzb.cn/atom.xml" rel="self"/>
+  
+  <link href="http://ronaldoxzb.cn/"/>
+  <updated>2021-08-26T09:39:03.485Z</updated>
+  <id>http://ronaldoxzb.cn/</id>
+  
+  <author>
+    <name>ronaldoxzb</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://ronaldoxzb.cn/2021/08/26/hello-world/"/>
+    <id>http://ronaldoxzb.cn/2021/08/26/hello-world/</id>
+    <published>2021-08-26T09:39:03.485Z</published>
+    <updated>2021-08-26T09:39:03.485Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
