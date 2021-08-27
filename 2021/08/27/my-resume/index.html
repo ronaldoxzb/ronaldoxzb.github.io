@@ -11,7 +11,7 @@
   
   <title>
     
-      archive_a: 2021/8 
+      my-resume 
       
       
       |
@@ -110,68 +110,103 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2021</span>
-          </h2>
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">my-resume</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="更新时间"></i>
+          2021-08-27 15:30:53
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/08/27/book-record/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="更新时间"></i>
+              2021-08-27 15:30:53
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="my-resume">
-        <div class="time-m-d">08-27</div>
-        <div class="title">
-          <a href="/2021/08/27/my-resume/">
-            <span>my-resume</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="世界的阴暗面，和我们假装美好的教育">
-        <div class="time-m-d">08-27</div>
-        <div class="title">
-          <a href="/2021/08/27/book-record/">
-            <span>世界的阴暗面，和我们假装美好的教育</span>
-          </a>
-        </div>
-      </div>
+
     
-      <div class="post-item" title="egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）">
-        <div class="time-m-d">08-27</div>
-        <div class="title">
-          <a href="/2021/08/27/egg-01/">
-            <span>egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="为什么要有node.js中间层？">
-        <div class="time-m-d">08-27</div>
-        <div class="title">
-          <a href="/2021/08/27/hello-world/">
-            <span>为什么要有node.js中间层？</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="JS引用类型的用法">
-        <div class="time-m-d">08-27</div>
-        <div class="title">
-          <a href="/2021/08/27/object-type/">
-            <span>JS引用类型的用法</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <div id="vcomments"></div>
+
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: '7X0kL3ecg1bjvYt2yrJl3Cvc-gzGzoHsz',
+      appKey: 'FcRvdMWiqS8NATn4Ao8Chf56',
+      placeholder: 'Welcome My Friends!',
+      avatar: 'retro',
+      lang: 'zh-CN'
+    })
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         <div class="footer">
   <div class="social">
@@ -446,6 +481,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + my-resume + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2F2021%2F08%2F27%2Fmy-resume%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/2021/08/27/my-resume/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
