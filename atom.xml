@@ -6,7 +6,7 @@
   <link href="http://ronaldoxzb.cn/atom.xml" rel="self"/>
   
   <link href="http://ronaldoxzb.cn/"/>
-  <updated>2021-08-27T09:46:11.340Z</updated>
+  <updated>2021-08-27T10:02:18.809Z</updated>
   <id>http://ronaldoxzb.cn/</id>
   
   <author>
@@ -17,24 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>my-resume</title>
-    <link href="http://ronaldoxzb.cn/2021/08/27/my-resume/"/>
-    <id>http://ronaldoxzb.cn/2021/08/27/my-resume/</id>
-    <published>2021-08-27T15:30:53.000Z</published>
-    <updated>2021-08-27T09:46:11.340Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>世界的阴暗面，和我们假装美好的教育</title>
     <link href="http://ronaldoxzb.cn/2021/08/27/book-record/"/>
     <id>http://ronaldoxzb.cn/2021/08/27/book-record/</id>
-    <published>2021-08-27T09:46:11.340Z</published>
-    <updated>2021-08-27T09:46:11.340Z</updated>
+    <published>2021-08-27T10:02:18.809Z</published>
+    <updated>2021-08-27T10:02:18.809Z</updated>
     
     
       
@@ -58,8 +45,8 @@
     <title>egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）</title>
     <link href="http://ronaldoxzb.cn/2021/08/27/egg-01/"/>
     <id>http://ronaldoxzb.cn/2021/08/27/egg-01/</id>
-    <published>2021-08-27T09:46:11.340Z</published>
-    <updated>2021-08-27T09:46:11.340Z</updated>
+    <published>2021-08-27T10:02:18.809Z</published>
+    <updated>2021-08-27T10:02:18.809Z</updated>
     
     
       
@@ -89,8 +76,8 @@
     <title>为什么要有node.js中间层？</title>
     <link href="http://ronaldoxzb.cn/2021/08/27/hello-world/"/>
     <id>http://ronaldoxzb.cn/2021/08/27/hello-world/</id>
-    <published>2021-08-27T09:46:11.340Z</published>
-    <updated>2021-08-27T09:46:11.340Z</updated>
+    <published>2021-08-27T10:02:18.809Z</published>
+    <updated>2021-08-27T10:02:18.809Z</updated>
     
     
       
@@ -114,8 +101,8 @@
     <title>JS引用类型的用法</title>
     <link href="http://ronaldoxzb.cn/2021/08/27/object-type/"/>
     <id>http://ronaldoxzb.cn/2021/08/27/object-type/</id>
-    <published>2021-08-27T09:46:11.340Z</published>
-    <updated>2021-08-27T09:46:11.340Z</updated>
+    <published>2021-08-27T10:02:18.809Z</published>
+    <updated>2021-08-27T10:02:18.809Z</updated>
     
     
       
