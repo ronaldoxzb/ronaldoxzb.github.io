@@ -56,10 +56,10 @@ comments:
   valine:
     # https://valine.js.org/quickstart.html#%E8%8E%B7%E5%8F%96APP-ID-%E5%92%8C-APP-Key
     # 进入以上网址查看官方教程
-    enable: false
-    appId:
-    appKey:
-    placeholder: Welcome!
+    enable: true
+    appId: 7X0kL3ecg1bjvYt2yrJl3Cvc-gzGzoHsz
+    appKey: FcRvdMWiqS8NATn4Ao8Chf56
+    placeholder: Welcome My Friends!
     avatar: retro
     vempty_display: false
 
