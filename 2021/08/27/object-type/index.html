@@ -11,6 +11,11 @@
   
   <title>
     
+      JS引用类型的用法 
+      
+      
+      |
+    
      RONALDOXZB
   </title>
 
@@ -105,69 +110,172 @@
 
 
       <div class="flex-container">
-        <div class="container index">
-  <div class="post-list">
-    <!-- 遍历渲染文章 -->
-    
-      <div class="post-item" title="世界的阴暗面，和我们假装美好的教育">
-        <div class="time-m-d">2021-08-27</div>
-        <div class="title">
-          <a href="/2021/08/27/book-record/">
-            
-              
-                <span>世界的阴暗面，和我们假装美好的教育</span>
-              
-            
-          </a>
-        </div>
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">JS引用类型的用法</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="更新时间"></i>
+          2021-08-27 07:02:15
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/FrontEnd-Tec/" title="FrontEnd-Tec">
+                    <b>#</b> FrontEnd-Tec
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/javascript/" title="javascript">
+                    <b>#</b> javascript
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
-    
-      <div class="post-item" title="egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）">
-        <div class="time-m-d">2021-08-27</div>
-        <div class="title">
-          <a href="/2021/08/27/egg-01/">
-            
-              
-                <span>egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）</span>
-              
-            
-          </a>
-        </div>
+      <div class="markdown-body">
+        <h4 id="操作数据"><a href="#操作数据" class="headerlink" title="操作数据"></a>操作数据</h4><pre><code>  const originData = [&quot;1#12&quot;, &quot;2#12&quot;, &quot;3#13&quot;, &quot;5#13&quot;, &quot;4#13&quot;, &quot;1#14&quot;];
+  
+</code></pre>
+<p><code>#</code>后面为projectId ，前面为modelId</p>
+<h4 id="目标数据"><a href="#目标数据" class="headerlink" title="目标数据"></a>目标数据</h4><pre><code>const targetData = [
+  &#123; projectId: &quot;12&quot;, modelId: [&quot;1&quot;, &quot;2&quot;] &#125;,
+  &#123; projectId: &quot;13&quot;, modelId: [&quot;3&quot;, &quot;5&quot;, &quot;4&quot;] &#125;,
+  &#123; projectId: &quot;14&quot;, modelId: [&quot;1&quot;] &#125;,
+];
+</code></pre>
+<h4 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h4><pre><code> function getList(list) &#123;
+  const temp = &#123;&#125;; // 定义的临时数据
+  const arr = [];
+  list.forEach((val) =&gt; &#123;
+    // 分割需要用到的数据
+    const [mid, pid] = val.split(&quot;#&quot;);
+    // 如果临时数据中存在当前项的projectId，则在temp[pid]值中追加modelId
+    if (temp[pid]) &#123;
+      temp[pid].push(mid);
+    &#125; else &#123;
+    // 如果不存在临时数据中存储当前projectId对应modelId的值
+      temp[pid] = [mid];
+      arr.push(&#123;
+        projectId: pid,
+        modelId: temp[pid], // 这里取temp中projectId所对应的值「其实就是引用类型的用法」
+      &#125;);
+    &#125;
+  &#125;);
+  return arr;
+&#125;
+</code></pre>
+
       </div>
-    
-      <div class="post-item" title="为什么要有node.js中间层？">
-        <div class="time-m-d">2021-08-27</div>
-        <div class="title">
-          <a href="/2021/08/27/hello-world/">
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
             
-              
-                <span>为什么要有node.js中间层？</span>
-              
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="更新时间"></i>
+              2021-08-27 07:02:15
+            </span>
             
-          </a>
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/FrontEnd-Tec/" title="FrontEnd-Tec">
+                        <b>#</b> FrontEnd-Tec
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="标签"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/javascript/" title="javascript">
+                        <b>#</b> javascript
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/08/27/hello-world/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
-      </div>
+      
+    </div>
     
-      <div class="post-item" title="JS引用类型的用法">
-        <div class="time-m-d">2021-08-27</div>
-        <div class="title">
-          <a href="/2021/08/27/object-type/">
-            
-              
-                <span>JS引用类型的用法</span>
-              
-            
-          </a>
-        </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE"><span class="toc-text">操作数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E6%95%B0%E6%8D%AE"><span class="toc-text">目标数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-text">具体实现</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
       </div>
     
   </div>
-  <nav class="post-navigation">
-    
-    <span class="page-num">1 / 1</span>
-    
-  </nav>
-</div>
+
 
         <div class="footer">
   <div class="social">
@@ -442,6 +550,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + JS%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%94%A8%E6%B3%95 + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2F2021%2F08%2F27%2Fobject-type%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/2021/08/27/object-type/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>

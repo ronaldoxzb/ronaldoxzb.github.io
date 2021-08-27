@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="ronaldoxzb" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      egg  + sequelize + mysql + jwt + vue 实现全栈服务（一） 
+      
+      
+      |
+    
+     RONALDOXZB
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="RONALDOXZB" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">RONALDOXZB</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="更新时间"></i>
+          2021-08-27 07:02:15
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/BackEnd-Tec/" title="BackEnd-Tec">
+                    <b>#</b> BackEnd-Tec
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/egg/" title="egg">
+                    <b>#</b> egg
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/sequelize/" title="sequelize">
+                    <b>#</b> sequelize
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/jwt/" title="jwt">
+                    <b>#</b> jwt
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/vue/" title="vue">
+                    <b>#</b> vue
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="Egg-js的常用配置"><a href="#Egg-js的常用配置" class="headerlink" title="Egg.js的常用配置"></a>Egg.js的常用配置</h1><h3 id="一、egg-js常用配置（在config目录下根据不同环境配置-config-default-或config-prod-js）"><a href="#一、egg-js常用配置（在config目录下根据不同环境配置-config-default-或config-prod-js）" class="headerlink" title="一、egg.js常用配置（在config目录下根据不同环境配置 config.default.或config.prod.js）"></a>一、egg.js常用配置（在config目录下根据不同环境配置 <em>config.default.或config.prod.js</em>）</h3><h4 id="1-数据库链接配置"><a href="#1-数据库链接配置" class="headerlink" title="1:数据库链接配置"></a>1:数据库链接配置</h4><pre><code>// mysql config
+  config.dbConfig = &#123;
+    database: process.env.DB_DATABASE || &#39;user&#39;,
+    host: process.env.DB_HOST || &#39;124.70.215.***&#39;,
+    port: process.env.DB_PORT || &#39;3306&#39;,
+    username: process.env.DB_USER || &#39;root&#39;,
+    password: process.env.DB_PASSWORD || &#39;******&#39;,
+    charset: &#39;utf8mb4&#39;,
+    collate: &#39;utf8_general_ci&#39;
+  &#125;
+</code></pre>
+<h4 id="2-jwt配置"><a href="#2-jwt配置" class="headerlink" title="2:jwt配置"></a>2:jwt配置</h4><pre><code>// jwt 配置
+  config.jwt = &#123;
+    secret: &#39;zzestlgcjwtsecret&#39;,
+    getToken(ctx) &#123;
+      if (
+        ctx.headers.authorization &amp;&amp;
+        (ctx.headers.authorization.split(&#39; &#39;)[0] === &#39;Bearer&#39; ||
+          ctx.headers.authorization.split(&#39; &#39;)[0] === &#39;Token&#39;)
+      ) &#123;
+        return ctx.headers.authorization.split(&#39; &#39;)[1]
+      &#125; else if (ctx.query &amp;&amp; ctx.query.token) &#123;
+        return ctx.query.token
+      &#125;
+      return null
+    &#125;
+  &#125;
+</code></pre>
+<h4 id="3-跨域配置"><a href="#3-跨域配置" class="headerlink" title="3:跨域配置"></a>3:跨域配置</h4><pre><code>// 跨域配置
+  config.cors = &#123;
+    origin: &#39;*&#39;,
+    allowMethods: &#39;GET, HEAD, PUT, POST, DELETE, PATCH, OPTIONS&#39;
+  &#125;
+</code></pre>
+<h4 id="4-部署指定端口配置"><a href="#4-部署指定端口配置" class="headerlink" title="4:部署指定端口配置"></a>4:部署指定端口配置</h4><pre><code>// 指定端口启动
+config.cluster = &#123;
+    listen: &#123;
+      path: &#39;&#39;,
+      port: 3005,
+      hostname: &#39;0.0.0.0&#39;,
+    &#125;
+  &#125;;
+</code></pre>
+<h4 id="5-常用插件的配置"><a href="#5-常用插件的配置" class="headerlink" title="5:常用插件的配置"></a>5:常用插件的配置</h4><pre><code>    // Sequelize插件
+  sequelize: &#123;
+    enable: true,
+    package: &#39;egg-sequelize&#39;
+  &#125;,
+  // 校验插件
+  validate: &#123;
+    enable: true,
+    package: &#39;egg-validate&#39;
+  &#125;,
+  // jwt插件
+  jwt: &#123;
+    enable: true,
+    package: &#39;egg-jwt&#39;
+  &#125;,
+  // 子路由
+  routerPlus: &#123;
+    enable: true,
+    package: &#39;egg-router-plus&#39;
+  &#125;,
+  // 跨域
+  cors: &#123;
+    enable: true,
+    package: &#39;egg-cors&#39;
+  &#125;,
+</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">egg-scripts start --daemon 启动于 egg-bin dev 的区别在于前者是在后台运行</span><br></pre></td></tr></table></figure>
+<h5 id="注意项目在dev环境启动的时候要注意package-json中所对应的指令。"><a href="#注意项目在dev环境启动的时候要注意package-json中所对应的指令。" class="headerlink" title="注意项目在dev环境启动的时候要注意package.json中所对应的指令。"></a>注意项目在dev环境启动的时候要注意package.json中所对应的指令。</h5><h5 id="由于框架的配置功能比较强大，有不同环境变量，又有框架、插件、应用等很多地方配置，如果配置不生效时可以查看下-root-run-application-config-json（worker-进程配置）-和-root-run-agent-config-json（agent-进程配置）-这两个文件。"><a href="#由于框架的配置功能比较强大，有不同环境变量，又有框架、插件、应用等很多地方配置，如果配置不生效时可以查看下-root-run-application-config-json（worker-进程配置）-和-root-run-agent-config-json（agent-进程配置）-这两个文件。" class="headerlink" title="由于框架的配置功能比较强大，有不同环境变量，又有框架、插件、应用等很多地方配置，如果配置不生效时可以查看下 ${root}/run/application_config.json（worker 进程配置） 和 ${root}/run/agent_config.json（agent 进程配置） 这两个文件。"></a>由于框架的配置功能比较强大，有不同环境变量，又有框架、插件、应用等很多地方配置，如果配置不生效时可以查看下 ${root}/run/application_config.json（worker 进程配置） 和 ${root}/run/agent_config.json（agent 进程配置） 这两个文件。</h5>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/08/27/hello-world/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="更新时间"></i>
+              2021-08-27 07:02:15
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/BackEnd-Tec/" title="BackEnd-Tec">
+                        <b>#</b> BackEnd-Tec
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="标签"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/egg/" title="egg">
+                        <b>#</b> egg
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/sequelize/" title="sequelize">
+                        <b>#</b> sequelize
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/jwt/" title="jwt">
+                        <b>#</b> jwt
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/vue/" title="vue">
+                        <b>#</b> vue
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/08/27/book-record/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Egg-js%E7%9A%84%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE"><span class="toc-text">Egg.js的常用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81egg-js%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%EF%BC%88%E5%9C%A8config%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-config-default-%E6%88%96config-prod-js%EF%BC%89"><span class="toc-text">一、egg.js常用配置（在config目录下根据不同环境配置 config.default.或config.prod.js）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E9%93%BE%E6%8E%A5%E9%85%8D%E7%BD%AE"><span class="toc-text">1:数据库链接配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-jwt%E9%85%8D%E7%BD%AE"><span class="toc-text">2:jwt配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE"><span class="toc-text">3:跨域配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%83%A8%E7%BD%B2%E6%8C%87%E5%AE%9A%E7%AB%AF%E5%8F%A3%E9%85%8D%E7%BD%AE"><span class="toc-text">4:部署指定端口配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">5:常用插件的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E9%A1%B9%E7%9B%AE%E5%9C%A8dev%E7%8E%AF%E5%A2%83%E5%90%AF%E5%8A%A8%E7%9A%84%E6%97%B6%E5%80%99%E8%A6%81%E6%B3%A8%E6%84%8Fpackage-json%E4%B8%AD%E6%89%80%E5%AF%B9%E5%BA%94%E7%9A%84%E6%8C%87%E4%BB%A4%E3%80%82"><span class="toc-text">注意项目在dev环境启动的时候要注意package.json中所对应的指令。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%B1%E4%BA%8E%E6%A1%86%E6%9E%B6%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BE%83%E5%BC%BA%E5%A4%A7%EF%BC%8C%E6%9C%89%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%8C%E5%8F%88%E6%9C%89%E6%A1%86%E6%9E%B6%E3%80%81%E6%8F%92%E4%BB%B6%E3%80%81%E5%BA%94%E7%94%A8%E7%AD%89%E5%BE%88%E5%A4%9A%E5%9C%B0%E6%96%B9%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%A6%82%E6%9E%9C%E9%85%8D%E7%BD%AE%E4%B8%8D%E7%94%9F%E6%95%88%E6%97%B6%E5%8F%AF%E4%BB%A5%E6%9F%A5%E7%9C%8B%E4%B8%8B-root-run-application-config-json%EF%BC%88worker-%E8%BF%9B%E7%A8%8B%E9%85%8D%E7%BD%AE%EF%BC%89-%E5%92%8C-root-run-agent-config-json%EF%BC%88agent-%E8%BF%9B%E7%A8%8B%E9%85%8D%E7%BD%AE%EF%BC%89-%E8%BF%99%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6%E3%80%82"><span class="toc-text">由于框架的配置功能比较强大，有不同环境变量，又有框架、插件、应用等很多地方配置，如果配置不生效时可以查看下 ${root}&#x2F;run&#x2F;application_config.json（worker 进程配置） 和 ${root}&#x2F;run&#x2F;agent_config.json（agent 进程配置） 这两个文件。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/ronaldoxzb">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="mailto:queenxzb@163.com">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" target="_blank" rel="noopener" href="https://twitter.com/ronaldoxzb">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" href="/images/weChat.png">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="/atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://ronaldoxzb.com">Copyright © ronaldoxzb 2021 | Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn">浙ICP备2021018538号</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索一下...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + egg%20%20%2B%20sequelize%20%2B%20mysql%20%2B%20jwt%20%2B%20vue%20%E5%AE%9E%E7%8E%B0%E5%85%A8%E6%A0%88%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%80%EF%BC%89 + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2F2021%2F08%2F27%2Fegg-01%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/2021/08/27/egg-01/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  </body>
+</html>

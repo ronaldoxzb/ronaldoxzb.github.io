@@ -6,7 +6,7 @@
   <link href="http://ronaldoxzb.cn/atom.xml" rel="self"/>
   
   <link href="http://ronaldoxzb.cn/"/>
-  <updated>2021-08-26T09:44:02.168Z</updated>
+  <updated>2021-08-27T07:02:15.889Z</updated>
   <id>http://ronaldoxzb.cn/</id>
   
   <author>
@@ -17,23 +17,108 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://ronaldoxzb.cn/2021/08/26/hello-world/"/>
-    <id>http://ronaldoxzb.cn/2021/08/26/hello-world/</id>
-    <published>2021-08-26T09:44:02.168Z</published>
-    <updated>2021-08-26T09:44:02.168Z</updated>
+    <title>世界的阴暗面，和我们假装美好的教育</title>
+    <link href="http://ronaldoxzb.cn/2021/08/27/book-record/"/>
+    <id>http://ronaldoxzb.cn/2021/08/27/book-record/</id>
+    <published>2021-08-27T07:02:15.889Z</published>
+    <updated>2021-08-27T07:02:15.889Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;世界的阴暗面，和我们假装美好的教育&quot;&gt;&lt;a href=&quot;#世界的阴暗面，和我们假装美好的教育&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
+    <category term="Reading-Notes" scheme="http://ronaldoxzb.cn/categories/Reading-Notes/"/>
+    
+    
+    <category term="perception" scheme="http://ronaldoxzb.cn/tags/perception/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）</title>
+    <link href="http://ronaldoxzb.cn/2021/08/27/egg-01/"/>
+    <id>http://ronaldoxzb.cn/2021/08/27/egg-01/</id>
+    <published>2021-08-27T07:02:15.889Z</published>
+    <updated>2021-08-27T07:02:15.889Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Egg-js的常用配置&quot;&gt;&lt;a href=&quot;#Egg-js的常用配置&quot; class=&quot;headerlink&quot; title=&quot;Egg.js的常用配置&quot;&gt;&lt;/a&gt;Egg.js的常用配置&lt;/h1&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="BackEnd-Tec" scheme="http://ronaldoxzb.cn/categories/BackEnd-Tec/"/>
+    
+    
+    <category term="egg" scheme="http://ronaldoxzb.cn/tags/egg/"/>
+    
+    <category term="sequelize" scheme="http://ronaldoxzb.cn/tags/sequelize/"/>
+    
+    <category term="jwt" scheme="http://ronaldoxzb.cn/tags/jwt/"/>
+    
+    <category term="vue" scheme="http://ronaldoxzb.cn/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为什么要有node.js中间层？</title>
+    <link href="http://ronaldoxzb.cn/2021/08/27/hello-world/"/>
+    <id>http://ronaldoxzb.cn/2021/08/27/hello-world/</id>
+    <published>2021-08-27T07:02:15.889Z</published>
+    <updated>2021-08-27T07:02:15.889Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;为什么要有node-js中间层？&quot;&gt;&lt;a href=&quot;#为什么要有node-js中间层？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="BackEnd-Tec" scheme="http://ronaldoxzb.cn/categories/BackEnd-Tec/"/>
+    
+    
+    <category term="node" scheme="http://ronaldoxzb.cn/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS引用类型的用法</title>
+    <link href="http://ronaldoxzb.cn/2021/08/27/object-type/"/>
+    <id>http://ronaldoxzb.cn/2021/08/27/object-type/</id>
+    <published>2021-08-27T07:02:15.889Z</published>
+    <updated>2021-08-27T07:02:15.889Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;操作数据&quot;&gt;&lt;a href=&quot;#操作数据&quot; class=&quot;headerlink&quot; title=&quot;操作数据&quot;&gt;&lt;/a&gt;操作数据&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;  const originData = [&amp;quot;1#12&amp;quot;,</summary>
+        
+      
+    
+    
+    
+    <category term="FrontEnd-Tec" scheme="http://ronaldoxzb.cn/categories/FrontEnd-Tec/"/>
+    
+    
+    <category term="javascript" scheme="http://ronaldoxzb.cn/tags/javascript/"/>
     
   </entry>
   
