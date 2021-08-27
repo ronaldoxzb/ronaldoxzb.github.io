@@ -26,7 +26,7 @@ favicon:
 # 用户头像与昵称
 avatar:
   author_photo: /images/avatar.png
-  author_nickname: Oranges
+  author_nickname: RONALDOXZB
   path: /
 
 # Google 分析
@@ -85,7 +85,7 @@ navbar:
     key: archives
   -
     name: Categories
-    enable: false
+    enable: true
     path: /categories/
     key: categories
   -
@@ -118,12 +118,12 @@ friends:
   # site: 地址
   # meta: 描述
   -
-    nickname: Zcheng
-    site: https://zcheng.site/
+    nickname: ronaldoxzb
+    site: https://ronaldoxzb.com
     meta:
   -
-    nickname: Hexo
-    site: https://hexo.io/
+    nickname: xuanwoa
+    site: https://xuanwoa.ronaldoxzb.com
     meta:
 
 # 页脚信息
@@ -141,23 +141,15 @@ footer:
     -
       name: email
       icon: envelope
-      path: 
-    -
-      name: facebook
-      icon: facebooksquare
-      path:
+      path: mailto:queenxzb@163.com
     -
       name: twitter
       icon: twitter
-      path:
+      path: https://twitter.com/ronaldoxzb
     -
       name: wechat
       icon: wechat
-      path:
-    -
-      name: weibo
-      icon: weibo
-      path:
+      path: /images/weChat.png
     -
       # rss需安装 hexo-generator-feed 插件
       # 具体参照https://github.com/hexojs/hexo-generator-feed
@@ -167,11 +159,11 @@ footer:
 
   more:
     -
-      name: Copyright © ronaldoxzb 2021
-      path: https://github.com/ronaldoxzb
+      name: Copyright © ronaldoxzb 2021 | Theme by Oranges | Powered by Hexo
+      path: https://ronaldoxzb.com
     -
-      name: Theme by Oranges | Powered by Hexo
-      path: https://github.com/zchengsite/hexo-theme-oranges
+      name: 浙ICP备2021018538号
+      path: http://www.beian.miit.gov.cn
 
 # 文章搜索
 search:

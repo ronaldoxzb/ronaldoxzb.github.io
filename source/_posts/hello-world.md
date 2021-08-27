@@ -1,38 +1,31 @@
 ---
-title: Hello World
+title: 为什么要有node.js中间层？
+tags:
+  - node 
+categories:
+  - BackEnd-Tec
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+### 为什么要有node.js中间层？
+目前流行前后端分离开发方式。虽然这里分离干净了，分工也很明确了，看似一切都那么美好，but...我们也很容易发现问题的所在：
+1:Client-side Model 是 Server-side Model 的加工
+2:Client-side View 跟 Server-side是 不同层次的东西
+3:Client-side的Controller 跟 Sever-side的Controller 各搞各的
+4:Client-side的Route 但是 Server-side 可能没有
 
-## Quick Start
+服务端和客户端各层职责重叠，大家各搞各的，很难统一具体要做的事情。并且可能会伴随着一些性能上的问题。最具体的表现就是我们常用的 SPA 应用：
 
-### Create a new post
+1:渲染，取值都在客户端进行，有性能的问题
+2:需要等待资源到齐才能进行，会有短暂白屏与闪动
+3:在移动设备低速网路的体验奇差无比
+4:渲染都在客户端，模版无法重用，SEO 实现 麻烦
 
-``` bash
-$ hexo new "My New Post"
-```
+这个就是中间层nodejs的意义，下面我们来看一下常见的业务场景：
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+#### 1. 接口数据可靠性修复
+有的时候服务端返回给我们的数据可能并不是前端想要的结构，所有用到的展现数据都是后端通过异步接口(AJAX/JSONP)的方式提供的，前端只管展现。但是后端经常提供后端的数据逻辑，在前端还需要去处理这些数据逻辑。
+#### 2. 页面性能优化 和 SEO
+有的时候我们做单页面应用，经常会碰到首屏加载性能问题，这个时候如果我们接了中间层nodejs的话，那么我们可以把首屏渲染的任务交给nodejs去做，次屏的渲染依然走之前的浏览器渲染。（前端换页，浏览器端渲染，直接输入网址，服务器渲染）服务端渲染对页面进行拼接直出html字符串，可以大幅提高首屏渲染的时间，减少用户的等待时间。这种形式应用最广的比如 Vue 的服务端渲染，里面也有相关的介绍。其次对于单页面的SEO优化也是很好地处理方式，由于目前的ajax并不被搜索百度等搜索引擎支持，所以如果想要得到爬虫的支持，那么服务端渲染也是一种解决方法。
+#### 3. 淘宝常见的需求解决方案
+需求：在淘宝，单日四亿PV，页面数据来自各个不同接口，为了不影响体验，先产生页面框架后，在发起多个异步请求取数据更新页面，这些多出来的请求带来的影响不小，尤其在无线端。解决方案：在 NodeJS 端使用 Bigpiper 技术，合并请求，降低负担，分批输出，不影响体验。同时可以拆分大接口为独立小接口，并发请求。串行 => 并行，大幅缩短请求时间。
 
-### Run server
 
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
