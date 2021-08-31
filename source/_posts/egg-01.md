@@ -1,4 +1,5 @@
 ---
+date: 2021-08-26 18:03:32
 title: egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）
 tags:
   - egg
