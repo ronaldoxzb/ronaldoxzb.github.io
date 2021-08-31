@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="ronaldoxzb" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      egg  + sequelize + mysql + jwt + vue 全栈项目部署 
+      
+      
+      |
+    
+     RONALDOXZB
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="RONALDOXZB" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">RONALDOXZB</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">egg  + sequelize + mysql + jwt + vue 全栈项目部署</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="更新时间"></i>
+          2021-08-31 03:25:10
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/Deploy-Tec/" title="Deploy-Tec">
+                    <b>#</b> Deploy-Tec
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/egg/" title="egg">
+                    <b>#</b> egg
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/vue/" title="vue">
+                    <b>#</b> vue
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/nginx/" title="nginx">
+                    <b>#</b> nginx
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/docker/" title="docker">
+                    <b>#</b> docker
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/docker-compose/" title="docker-compose">
+                    <b>#</b> docker-compose
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h3 id="Egg-spider"><a href="#Egg-spider" class="headerlink" title="Egg-spider"></a>Egg-spider</h3><h4 id="后端-egg-js-jwt-mysql-sequelize-redis-docker-docker-compose-nginx-vue-element-ui-全栈获取省市区数据（统计局数据）【工具】项目，实现在docker环境中一键部署"><a href="#后端-egg-js-jwt-mysql-sequelize-redis-docker-docker-compose-nginx-vue-element-ui-全栈获取省市区数据（统计局数据）【工具】项目，实现在docker环境中一键部署" class="headerlink" title="[后端]egg.js(jwt) + mysql(sequelize) + redis + docker + docker-compose + nginx + vue + element-ui 全栈获取省市区数据（统计局数据）【工具】项目，实现在docker环境中一键部署"></a>[后端]egg.js(jwt) + mysql(sequelize) + redis + docker + docker-compose + nginx + vue + element-ui 全栈获取省市区数据（统计局数据）【工具】项目，实现在docker环境中一键部署</h4><h5 id="1-实现用户注册登录"><a href="#1-实现用户注册登录" class="headerlink" title="1 实现用户注册登录"></a>1 实现用户注册登录</h5><h5 id="2-实现统计局省市区数据的爬取"><a href="#2-实现统计局省市区数据的爬取" class="headerlink" title="2 实现统计局省市区数据的爬取"></a>2 实现统计局省市区数据的爬取</h5><h5 id="3-实现大批量excel测试数据"><a href="#3-实现大批量excel测试数据" class="headerlink" title="3 实现大批量excel测试数据"></a>3 实现大批量excel测试数据</h5><h5 id="4-实现资源的监控"><a href="#4-实现资源的监控" class="headerlink" title="4 实现资源的监控"></a>4 实现资源的监控</h5><h5 id="5-实现羽雀API的调用"><a href="#5-实现羽雀API的调用" class="headerlink" title="5 实现羽雀API的调用"></a>5 实现羽雀API的调用</h5><h5 id="6-实现邮件的发送（基于smtp-qq-com"><a href="#6-实现邮件的发送（基于smtp-qq-com" class="headerlink" title="6 实现邮件的发送（基于smtp.qq.com)"></a>6 实现邮件的发送（基于smtp.qq.com)</h5><h4 id="前端-element-ui-https-github-com-PanJiaChen-vue-admin-template-🙏"><a href="#前端-element-ui-https-github-com-PanJiaChen-vue-admin-template-🙏" class="headerlink" title="[前端] element-ui (https://github.com/PanJiaChen/vue-admin-template) 🙏"></a>[前端] element-ui (<a target="_blank" rel="noopener" href="https://github.com/PanJiaChen/vue-admin-template">https://github.com/PanJiaChen/vue-admin-template</a>) 🙏</h4><h5 id="PanJiaChen-大佬最精简的一副vue模版（拿来熟悉docker-compose的发布流程）"><a href="#PanJiaChen-大佬最精简的一副vue模版（拿来熟悉docker-compose的发布流程）" class="headerlink" title="PanJiaChen 大佬最精简的一副vue模版（拿来熟悉docker-compose的发布流程）"></a>PanJiaChen 大佬最精简的一副vue模版（拿来熟悉docker-compose的发布流程）</h5><h3 id="Project-back-end-structure-description"><a href="#Project-back-end-structure-description" class="headerlink" title="Project back end structure description"></a>Project back end structure description</h3><h4 id="app"><a href="#app" class="headerlink" title="app"></a>app</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">├── contract</span><br><span class="line">│   └── type.js     swaggerdoc配置文件</span><br><span class="line">├── controller</span><br><span class="line">│   ├── api</span><br><span class="line">│   │   ├── area.js     省市区乡镇村数据获取</span><br><span class="line">│   │   ├── mock.js     生成mock数据生成Excel文件</span><br><span class="line">│   │   ├── system.js       获取系统资源使用情况</span><br><span class="line">│   │   ├── tool</span><br><span class="line">│   │   │   └── email.js        发送邮件</span><br><span class="line">│   │   ├── user.js</span><br><span class="line">│   │   └── yuque.js        羽雀API调用</span><br><span class="line">│   └── view</span><br><span class="line">│       └── page.js     模版引擎渲染index</span><br><span class="line">├── database</span><br><span class="line">│   └── db.js       model层公用</span><br><span class="line">├── extend</span><br><span class="line">│   ├── application.js      app扩展函数</span><br><span class="line">│   └── helper.js       公用函数封装</span><br><span class="line">├── middleware</span><br><span class="line">│   ├── error_handler.js    成功/出错处理等</span><br><span class="line">│   ├── notfound_handler.js     404处理等</span><br><span class="line">│   └── pagination.js       分页器封装</span><br><span class="line">├── model</span><br><span class="line">│   ├── cities.js       市表</span><br><span class="line">│   ├── districts.js        街道表</span><br><span class="line">│   ├── provinces.js        省表</span><br><span class="line">│   ├── towns.js        乡镇表</span><br><span class="line">│   ├── user.js     用户表</span><br><span class="line">│   └── villages.js     村表</span><br><span class="line">├── public      静态资源文件</span><br><span class="line">├── router      路由表（不赘述）</span><br><span class="line">│   ├── api</span><br><span class="line">│   │   ├── area.js     </span><br><span class="line">│   │   ├── mock.js</span><br><span class="line">│   │   ├── system.js</span><br><span class="line">│   │   ├── tool</span><br><span class="line">│   │   │   └── email.js</span><br><span class="line">│   │   ├── user.js</span><br><span class="line">│   │   └── yuque.js</span><br><span class="line">│   └── view</span><br><span class="line">│       └── page.js</span><br><span class="line">├── service     逻辑处理层</span><br><span class="line">│   ├── area.js     </span><br><span class="line">│   ├── cache.js</span><br><span class="line">│   ├── common.js</span><br><span class="line">│   └── user.js</span><br><span class="line">├── utils       暂无</span><br><span class="line">└── view        未做前后端分离前的模版引擎渲染的页面</span><br><span class="line">    ├── index.html</span><br><span class="line">    └── tool.html</span><br></pre></td></tr></table></figure>
+<h4 id="config"><a href="#config" class="headerlink" title="config"></a>config</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">├── config.default.js   默认配置文件</span><br><span class="line">├── config.local.js     本地开发配置文件</span><br><span class="line">├── config.prod.js      生产配置文件</span><br><span class="line">└── plugin.js       插件配置文件</span><br></pre></td></tr></table></figure>
+<h4 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">├── mysql</span><br><span class="line">│   ├── Dockerfile      mysql镜像文件</span><br><span class="line">│   ├── init</span><br><span class="line">│   │   └── init.sql        初始建库执行的sql   </span><br><span class="line">│   └── mysqld.cnf      mysql配置文件</span><br><span class="line">├── redis</span><br><span class="line">│   ├── Dockerfile      redis镜像文件</span><br><span class="line">│   └── redis.conf      redis配置文件</span><br><span class="line">├── server</span><br><span class="line">│   └── Dockerfile      server镜像文件启动</span><br><span class="line">└── web</span><br><span class="line">    ├── Dockerfile      web build 及 nginx镜像文件</span><br><span class="line">    └── nginx.conf      nginx配置文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h3><h4 id="server-自行安装docker-amp-docker-compose-amp-amp-node"><a href="#server-自行安装docker-amp-docker-compose-amp-amp-node" class="headerlink" title="server(自行安装docker&amp;docker-compose&amp;&amp;node)"></a><code>server(自行安装docker&amp;docker-compose&amp;&amp;node)</code></h4><h5 id="start-mysql-amp-redis"><a href="#start-mysql-amp-redis" class="headerlink" title="start mysql &amp; redis"></a>start mysql &amp; redis</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose -f docker-compose-dev.yml up     </span><br></pre></td></tr></table></figure>
+<h5 id="start-server"><a href="#start-server" class="headerlink" title="start server"></a>start server</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm i</span><br><span class="line">$ npm run dev</span><br><span class="line">$ open http://localhost:7001/</span><br></pre></td></tr></table></figure>
+<h4 id="web-自行安装node环境"><a href="#web-自行安装node环境" class="headerlink" title="web(自行安装node环境)"></a><code>web(自行安装node环境)</code></h4><h5 id="start-web"><a href="#start-web" class="headerlink" title="start web"></a>start web</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm i</span><br><span class="line">$ npm run dev</span><br><span class="line">$ open http://localhost:9028/</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-宿主机安装docker-amp-amp-docker-compose"><a href="#Deploy-宿主机安装docker-amp-amp-docker-compose" class="headerlink" title="Deploy(宿主机安装docker&amp;&amp;docker-compose)"></a>Deploy(宿主机安装docker&amp;&amp;docker-compose)</h3><!-- start stop -->
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose up</span><br><span class="line">$ docker-compose stop</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/08/31/docker/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="更新时间"></i>
+              2021-08-31 03:25:10
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/Deploy-Tec/" title="Deploy-Tec">
+                        <b>#</b> Deploy-Tec
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="标签"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/egg/" title="egg">
+                        <b>#</b> egg
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/vue/" title="vue">
+                        <b>#</b> vue
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/nginx/" title="nginx">
+                        <b>#</b> nginx
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/docker/" title="docker">
+                        <b>#</b> docker
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/docker-compose/" title="docker-compose">
+                        <b>#</b> docker-compose
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/08/31/book-record/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Egg-spider"><span class="toc-text">Egg-spider</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF-egg-js-jwt-mysql-sequelize-redis-docker-docker-compose-nginx-vue-element-ui-%E5%85%A8%E6%A0%88%E8%8E%B7%E5%8F%96%E7%9C%81%E5%B8%82%E5%8C%BA%E6%95%B0%E6%8D%AE%EF%BC%88%E7%BB%9F%E8%AE%A1%E5%B1%80%E6%95%B0%E6%8D%AE%EF%BC%89%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E9%A1%B9%E7%9B%AE%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%9C%A8docker%E7%8E%AF%E5%A2%83%E4%B8%AD%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2"><span class="toc-text">[后端]egg.js(jwt) + mysql(sequelize) + redis + docker + docker-compose + nginx + vue + element-ui 全栈获取省市区数据（统计局数据）【工具】项目，实现在docker环境中一键部署</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95"><span class="toc-text">1 实现用户注册登录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%AE%9E%E7%8E%B0%E7%BB%9F%E8%AE%A1%E5%B1%80%E7%9C%81%E5%B8%82%E5%8C%BA%E6%95%B0%E6%8D%AE%E7%9A%84%E7%88%AC%E5%8F%96"><span class="toc-text">2 实现统计局省市区数据的爬取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%AE%9E%E7%8E%B0%E5%A4%A7%E6%89%B9%E9%87%8Fexcel%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="toc-text">3 实现大批量excel测试数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E7%9A%84%E7%9B%91%E6%8E%A7"><span class="toc-text">4 实现资源的监控</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%AE%9E%E7%8E%B0%E7%BE%BD%E9%9B%80API%E7%9A%84%E8%B0%83%E7%94%A8"><span class="toc-text">5 实现羽雀API的调用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E7%9A%84%E5%8F%91%E9%80%81%EF%BC%88%E5%9F%BA%E4%BA%8Esmtp-qq-com"><span class="toc-text">6 实现邮件的发送（基于smtp.qq.com)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF-element-ui-https-github-com-PanJiaChen-vue-admin-template-%F0%9F%99%8F"><span class="toc-text">[前端] element-ui (https:&#x2F;&#x2F;github.com&#x2F;PanJiaChen&#x2F;vue-admin-template) 🙏</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#PanJiaChen-%E5%A4%A7%E4%BD%AC%E6%9C%80%E7%B2%BE%E7%AE%80%E7%9A%84%E4%B8%80%E5%89%AFvue%E6%A8%A1%E7%89%88%EF%BC%88%E6%8B%BF%E6%9D%A5%E7%86%9F%E6%82%89docker-compose%E7%9A%84%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B%EF%BC%89"><span class="toc-text">PanJiaChen 大佬最精简的一副vue模版（拿来熟悉docker-compose的发布流程）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Project-back-end-structure-description"><span class="toc-text">Project back end structure description</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#app"><span class="toc-text">app</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#config"><span class="toc-text">config</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#docker"><span class="toc-text">docker</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Development"><span class="toc-text">Development</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#server-%E8%87%AA%E8%A1%8C%E5%AE%89%E8%A3%85docker-amp-docker-compose-amp-amp-node"><span class="toc-text">server(自行安装docker&amp;docker-compose&amp;&amp;node)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#start-mysql-amp-redis"><span class="toc-text">start mysql &amp; redis</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#start-server"><span class="toc-text">start server</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#web-%E8%87%AA%E8%A1%8C%E5%AE%89%E8%A3%85node%E7%8E%AF%E5%A2%83"><span class="toc-text">web(自行安装node环境)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#start-web"><span class="toc-text">start web</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%AE%89%E8%A3%85docker-amp-amp-docker-compose"><span class="toc-text">Deploy(宿主机安装docker&amp;&amp;docker-compose)</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <div id="vcomments"></div>
+
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: '7X0kL3ecg1bjvYt2yrJl3Cvc-gzGzoHsz',
+      appKey: 'FcRvdMWiqS8NATn4Ao8Chf56',
+      placeholder: 'Welcome My Friends!',
+      avatar: 'retro',
+      lang: 'zh-CN'
+    })
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/ronaldoxzb">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="mailto:queenxzb@163.com">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" target="_blank" rel="noopener" href="https://twitter.com/ronaldoxzb">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" href="/images/weChat.png">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="/atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://ronaldoxzb.com">Copyright © ronaldoxzb 2021 | Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn">浙ICP备2021018538号</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索一下...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + egg%20%20%2B%20sequelize%20%2B%20mysql%20%2B%20jwt%20%2B%20vue%20%E5%85%A8%E6%A0%88%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2 + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2F2021%2F08%2F31%2Fcompose-deploy%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/2021/08/31/compose-deploy/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  </body>
+</html>

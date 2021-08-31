@@ -6,7 +6,7 @@
   <link href="http://ronaldoxzb.cn/atom.xml" rel="self"/>
   
   <link href="http://ronaldoxzb.cn/"/>
-  <updated>2021-08-27T10:02:18.809Z</updated>
+  <updated>2021-08-31T03:25:10.076Z</updated>
   <id>http://ronaldoxzb.cn/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>世界的阴暗面，和我们假装美好的教育</title>
-    <link href="http://ronaldoxzb.cn/2021/08/27/book-record/"/>
-    <id>http://ronaldoxzb.cn/2021/08/27/book-record/</id>
-    <published>2021-08-27T10:02:18.809Z</published>
-    <updated>2021-08-27T10:02:18.809Z</updated>
+    <link href="http://ronaldoxzb.cn/2021/08/31/book-record/"/>
+    <id>http://ronaldoxzb.cn/2021/08/31/book-record/</id>
+    <published>2021-08-31T03:25:10.076Z</published>
+    <updated>2021-08-31T03:25:10.076Z</updated>
     
     
       
@@ -42,11 +42,70 @@
   </entry>
   
   <entry>
+    <title>egg  + sequelize + mysql + jwt + vue 全栈项目部署</title>
+    <link href="http://ronaldoxzb.cn/2021/08/31/compose-deploy/"/>
+    <id>http://ronaldoxzb.cn/2021/08/31/compose-deploy/</id>
+    <published>2021-08-31T03:25:10.076Z</published>
+    <updated>2021-08-31T03:25:10.076Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Egg-spider&quot;&gt;&lt;a href=&quot;#Egg-spider&quot; class=&quot;headerlink&quot; title=&quot;Egg-spider&quot;&gt;&lt;/a&gt;Egg-spider&lt;/h3&gt;&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="Deploy-Tec" scheme="http://ronaldoxzb.cn/categories/Deploy-Tec/"/>
+    
+    
+    <category term="egg" scheme="http://ronaldoxzb.cn/tags/egg/"/>
+    
+    <category term="vue" scheme="http://ronaldoxzb.cn/tags/vue/"/>
+    
+    <category term="nginx" scheme="http://ronaldoxzb.cn/tags/nginx/"/>
+    
+    <category term="docker" scheme="http://ronaldoxzb.cn/tags/docker/"/>
+    
+    <category term="docker-compose" scheme="http://ronaldoxzb.cn/tags/docker-compose/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker相关</title>
+    <link href="http://ronaldoxzb.cn/2021/08/31/docker/"/>
+    <id>http://ronaldoxzb.cn/2021/08/31/docker/</id>
+    <published>2021-08-31T03:25:10.076Z</published>
+    <updated>2021-08-31T03:25:10.076Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img width=&quot;300&quot; align=&quot;center&quot; src=&quot;/images/dockerlogo.png&quot; alt=&quot;ronaldoxzb&quot; /&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;h3 id=&quot;一、集装箱？&quot;&gt;&lt;a href=&quot;#一、集装箱？&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Deploy-Tec" scheme="http://ronaldoxzb.cn/categories/Deploy-Tec/"/>
+    
+    
+    <category term="docker" scheme="http://ronaldoxzb.cn/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）</title>
-    <link href="http://ronaldoxzb.cn/2021/08/27/egg-01/"/>
-    <id>http://ronaldoxzb.cn/2021/08/27/egg-01/</id>
-    <published>2021-08-27T10:02:18.809Z</published>
-    <updated>2021-08-27T10:02:18.809Z</updated>
+    <link href="http://ronaldoxzb.cn/2021/08/31/egg-01/"/>
+    <id>http://ronaldoxzb.cn/2021/08/31/egg-01/</id>
+    <published>2021-08-31T03:25:10.076Z</published>
+    <updated>2021-08-31T03:25:10.076Z</updated>
     
     
       
@@ -64,20 +123,20 @@
     
     <category term="egg" scheme="http://ronaldoxzb.cn/tags/egg/"/>
     
+    <category term="vue" scheme="http://ronaldoxzb.cn/tags/vue/"/>
+    
     <category term="sequelize" scheme="http://ronaldoxzb.cn/tags/sequelize/"/>
     
     <category term="jwt" scheme="http://ronaldoxzb.cn/tags/jwt/"/>
-    
-    <category term="vue" scheme="http://ronaldoxzb.cn/tags/vue/"/>
     
   </entry>
   
   <entry>
     <title>为什么要有node.js中间层？</title>
-    <link href="http://ronaldoxzb.cn/2021/08/27/hello-world/"/>
-    <id>http://ronaldoxzb.cn/2021/08/27/hello-world/</id>
-    <published>2021-08-27T10:02:18.809Z</published>
-    <updated>2021-08-27T10:02:18.809Z</updated>
+    <link href="http://ronaldoxzb.cn/2021/08/31/hello-world/"/>
+    <id>http://ronaldoxzb.cn/2021/08/31/hello-world/</id>
+    <published>2021-08-31T03:25:10.076Z</published>
+    <updated>2021-08-31T03:25:10.076Z</updated>
     
     
       
@@ -99,10 +158,10 @@
   
   <entry>
     <title>JS引用类型的用法</title>
-    <link href="http://ronaldoxzb.cn/2021/08/27/object-type/"/>
-    <id>http://ronaldoxzb.cn/2021/08/27/object-type/</id>
-    <published>2021-08-27T10:02:18.809Z</published>
-    <updated>2021-08-27T10:02:18.809Z</updated>
+    <link href="http://ronaldoxzb.cn/2021/08/31/object-type/"/>
+    <id>http://ronaldoxzb.cn/2021/08/31/object-type/</id>
+    <published>2021-08-31T03:25:10.076Z</published>
+    <updated>2021-08-31T03:25:10.076Z</updated>
     
     
       
