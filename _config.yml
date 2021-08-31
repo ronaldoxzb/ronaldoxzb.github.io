@@ -119,6 +119,13 @@ footer:
       name: rss
       icon: rss
       path: atom.xml
+
+lazyload:
+  enable: true
+  onlypost: false # optional
+  loadingImg: https://qiniu.zcheng.site/image-loading.svg
+  isSPA: false # optional
+  
 search:
   path: search.xml
   field: post
