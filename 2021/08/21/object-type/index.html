@@ -11,7 +11,7 @@
   
   <title>
     
-      为什么要有node.js中间层？ 
+      JS引用类型的用法 
       
       
       |
@@ -138,19 +138,19 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">为什么要有node.js中间层？</div>
+      <div class="post-title">JS引用类型的用法</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="更新时间"></i>
-          2021-08-31 03:25:10
+          2021-08-21 15:03:32
         </span>
         
               <span class="post-categories">
                 <i class="iconfont icon-bookmark" title="分类"></i>
                 
                 <span class="span--category">
-                  <a href="/categories/BackEnd-Tec/" title="BackEnd-Tec">
-                    <b>#</b> BackEnd-Tec
+                  <a href="/categories/FrontEnd-Tec/" title="FrontEnd-Tec">
+                    <b>#</b> FrontEnd-Tec
                   </a>
                 </span>
                 
@@ -160,8 +160,8 @@ MathJax = {
                 <i class="iconfont icon-tags" title="标签"></i>
                 
                 <span class="span--tag">
-                  <a href="/tags/node/" title="node">
-                    <b>#</b> node
+                  <a href="/tags/javascript/" title="javascript">
+                    <b>#</b> javascript
                   </a>
                 </span>
                 
@@ -169,20 +169,44 @@ MathJax = {
           
       </div>
       <div class="markdown-body">
-        <h3 id="为什么要有node-js中间层？"><a href="#为什么要有node-js中间层？" class="headerlink" title="为什么要有node.js中间层？"></a>为什么要有node.js中间层？</h3><p>目前流行前后端分离开发方式。虽然这里分离干净了，分工也很明确了，看似一切都那么美好，but…我们也很容易发现问题的所在：<br>1:Client-side Model 是 Server-side Model 的加工<br>2:Client-side View 跟 Server-side是 不同层次的东西<br>3:Client-side的Controller 跟 Sever-side的Controller 各搞各的<br>4:Client-side的Route 但是 Server-side 可能没有</p>
-<p>服务端和客户端各层职责重叠，大家各搞各的，很难统一具体要做的事情。并且可能会伴随着一些性能上的问题。最具体的表现就是我们常用的 SPA 应用：</p>
-<p>1:渲染，取值都在客户端进行，有性能的问题<br>2:需要等待资源到齐才能进行，会有短暂白屏与闪动<br>3:在移动设备低速网路的体验奇差无比<br>4:渲染都在客户端，模版无法重用，SEO 实现 麻烦</p>
-<p>这个就是中间层nodejs的意义，下面我们来看一下常见的业务场景：</p>
-<h4 id="1-接口数据可靠性修复"><a href="#1-接口数据可靠性修复" class="headerlink" title="1. 接口数据可靠性修复"></a>1. 接口数据可靠性修复</h4><p>有的时候服务端返回给我们的数据可能并不是前端想要的结构，所有用到的展现数据都是后端通过异步接口(AJAX/JSONP)的方式提供的，前端只管展现。但是后端经常提供后端的数据逻辑，在前端还需要去处理这些数据逻辑。</p>
-<h4 id="2-页面性能优化-和-SEO"><a href="#2-页面性能优化-和-SEO" class="headerlink" title="2. 页面性能优化 和 SEO"></a>2. 页面性能优化 和 SEO</h4><p>有的时候我们做单页面应用，经常会碰到首屏加载性能问题，这个时候如果我们接了中间层nodejs的话，那么我们可以把首屏渲染的任务交给nodejs去做，次屏的渲染依然走之前的浏览器渲染。（前端换页，浏览器端渲染，直接输入网址，服务器渲染）服务端渲染对页面进行拼接直出html字符串，可以大幅提高首屏渲染的时间，减少用户的等待时间。这种形式应用最广的比如 Vue 的服务端渲染，里面也有相关的介绍。其次对于单页面的SEO优化也是很好地处理方式，由于目前的ajax并不被搜索百度等搜索引擎支持，所以如果想要得到爬虫的支持，那么服务端渲染也是一种解决方法。</p>
-<h4 id="3-淘宝常见的需求解决方案"><a href="#3-淘宝常见的需求解决方案" class="headerlink" title="3. 淘宝常见的需求解决方案"></a>3. 淘宝常见的需求解决方案</h4><p>需求：在淘宝，单日四亿PV，页面数据来自各个不同接口，为了不影响体验，先产生页面框架后，在发起多个异步请求取数据更新页面，这些多出来的请求带来的影响不小，尤其在无线端。解决方案：在 NodeJS 端使用 Bigpiper 技术，合并请求，降低负担，分批输出，不影响体验。同时可以拆分大接口为独立小接口，并发请求。串行 =&gt; 并行，大幅缩短请求时间。</p>
+        <h4 id="操作数据"><a href="#操作数据" class="headerlink" title="操作数据"></a>操作数据</h4><pre><code>  const originData = [&quot;1#12&quot;, &quot;2#12&quot;, &quot;3#13&quot;, &quot;5#13&quot;, &quot;4#13&quot;, &quot;1#14&quot;];
+  
+</code></pre>
+<p><code>#</code>后面为projectId ，前面为modelId</p>
+<h4 id="目标数据"><a href="#目标数据" class="headerlink" title="目标数据"></a>目标数据</h4><pre><code>const targetData = [
+  &#123; projectId: &quot;12&quot;, modelId: [&quot;1&quot;, &quot;2&quot;] &#125;,
+  &#123; projectId: &quot;13&quot;, modelId: [&quot;3&quot;, &quot;5&quot;, &quot;4&quot;] &#125;,
+  &#123; projectId: &quot;14&quot;, modelId: [&quot;1&quot;] &#125;,
+];
+</code></pre>
+<h4 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h4><pre><code> function getList(list) &#123;
+  const temp = &#123;&#125;; // 定义的临时数据
+  const arr = [];
+  list.forEach((val) =&gt; &#123;
+    // 分割需要用到的数据
+    const [mid, pid] = val.split(&quot;#&quot;);
+    // 如果临时数据中存在当前项的projectId，则在temp[pid]值中追加modelId
+    if (temp[pid]) &#123;
+      temp[pid].push(mid);
+    &#125; else &#123;
+    // 如果不存在临时数据中存储当前projectId对应modelId的值
+      temp[pid] = [mid];
+      arr.push(&#123;
+        projectId: pid,
+        modelId: temp[pid], // 这里取temp中projectId所对应的值「其实就是引用类型的用法」
+      &#125;);
+    &#125;
+  &#125;);
+  return arr;
+&#125;
+</code></pre>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2021/08/31/object-type/" target="_self">
+              <a href="/2020/08/20/hello-world/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -191,15 +215,15 @@ MathJax = {
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="更新时间"></i>
-              2021-08-31 03:25:10
+              2021-08-21 15:03:32
             </span>
             
                   <span class="post-categories">
                     <i class="iconfont icon-bookmark" title="分类"></i>
                     
                     <span class="span--category">
-                      <a href="/categories/BackEnd-Tec/" title="BackEnd-Tec">
-                        <b>#</b> BackEnd-Tec
+                      <a href="/categories/FrontEnd-Tec/" title="FrontEnd-Tec">
+                        <b>#</b> FrontEnd-Tec
                       </a>
                     </span>
                     
@@ -209,8 +233,8 @@ MathJax = {
                     <i class="iconfont icon-tags" title="标签"></i>
                     
                     <span class="span--tag">
-                      <a href="/tags/node/" title="node">
-                        <b>#</b> node
+                      <a href="/tags/javascript/" title="javascript">
+                        <b>#</b> javascript
                       </a>
                     </span>
                     
@@ -219,7 +243,7 @@ MathJax = {
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2021/08/31/egg-01/" target="_self">
+              <a href="/2021/08/25/book-record/" target="_self">
                 <span>下一页</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -235,7 +259,7 @@ MathJax = {
   <div class="post-catalog hidden" id="catalog">
     <div class="title">目录</div>
     <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89node-js%E4%B8%AD%E9%97%B4%E5%B1%82%EF%BC%9F"><span class="toc-text">为什么要有node.js中间层？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%8E%A5%E5%8F%A3%E6%95%B0%E6%8D%AE%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BF%AE%E5%A4%8D"><span class="toc-text">1. 接口数据可靠性修复</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%A1%B5%E9%9D%A2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E5%92%8C-SEO"><span class="toc-text">2. 页面性能优化 和 SEO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%B7%98%E5%AE%9D%E5%B8%B8%E8%A7%81%E7%9A%84%E9%9C%80%E6%B1%82%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">3. 淘宝常见的需求解决方案</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE"><span class="toc-text">操作数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E6%95%B0%E6%8D%AE"><span class="toc-text">目标数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-text">具体实现</span></a></li></ol>
     </div>
   </div>
 
@@ -559,12 +583,12 @@ MathJax = {
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89node.js%E4%B8%AD%E9%97%B4%E5%B1%82%EF%BC%9F + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2F2021%2F08%2F31%2Fhello-world%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + JS%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%94%A8%E6%B3%95 + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2F2021%2F08%2F21%2Fobject-type%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/2021/08/31/hello-world/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/2021/08/21/object-type/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
