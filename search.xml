@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>微信js-sdk配置流程（测试号与公众号配置）</title>
+      <link href="/2021/10/14/wx-jssdk/"/>
+      <url>/2021/10/14/wx-jssdk/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、微信公号后台配置"><a href="#一、微信公号后台配置" class="headerlink" title="一、微信公号后台配置"></a>一、微信公号后台配置</h3><h4 id="1、获取-AppID、AppSecret"><a href="#1、获取-AppID、AppSecret" class="headerlink" title="1、获取 AppID、AppSecret"></a>1、获取 AppID、AppSecret</h4><blockquote><h5 id="测试号可从微信测试号申请获取-这样就获得了-AppID-与-AppSecret"><a href="#测试号可从微信测试号申请获取-这样就获得了-AppID-与-AppSecret" class="headerlink" title="测试号可从微信测试号申请获取,这样就获得了 AppID 与 AppSecret"></a><code>测试号</code>可从<a href="http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index">微信测试号申请</a>获取,这样就获得了 AppID 与 AppSecret</h5></blockquote><img width="40%" align="ceter" src="https://z3.ax1x.com/2021/10/14/5lMgQx.png" alt="ronaldoxzb" /></p><blockquote><h5 id="公众号申请自行操作申请完成后在公众号后台设置与开发基本配置中获取"><a href="#公众号申请自行操作申请完成后在公众号后台设置与开发基本配置中获取" class="headerlink" title="公众号申请自行操作申请完成后在公众号后台设置与开发基本配置中获取"></a><code>公众号申请自行操作</code>申请完成后在公众号后台<code>设置与开发</code>基本配置中获取</h5></blockquote><img width="40%" align="ceter" src="https://z3.ax1x.com/2021/10/20/5BJtIK.png" alt="ronaldoxzb" /><h4 id="2、配置-AppID、AppSecret"><a href="#2、配置-AppID、AppSecret" class="headerlink" title="2、配置 AppID、AppSecret"></a>2、配置 AppID、AppSecret</h4><blockquote><h5 id="获取到AppID、AppSecret后，可在程序中配置"><a href="#获取到AppID、AppSecret后，可在程序中配置" class="headerlink" title="获取到AppID、AppSecret后，可在程序中配置"></a><code>获取到AppID、AppSecret后，可在程序中配置</code></h5></blockquote><h4 id="3、IP-白名单添加（需要服务器-ip）"><a href="#3、IP-白名单添加（需要服务器-ip）" class="headerlink" title="3、IP 白名单添加（需要服务器 ip）"></a>3、IP 白名单添加（需要服务器 ip）</h4><blockquote><h5 id="添加IP白名单来调用获取ACCESS-TOKEN的接口"><a href="#添加IP白名单来调用获取ACCESS-TOKEN的接口" class="headerlink" title="添加IP白名单来调用获取ACCESS_TOKEN的接口"></a><code>添加IP白名单来调用获取ACCESS_TOKEN的接口</code></h5></blockquote><img width="40%" align="ceter" src="https://z3.ax1x.com/2021/10/20/5BYUwq.png" alt="ronaldoxzb" /><h4 id="4、配置服务器地址（与微信通信检查）"><a href="#4、配置服务器地址（与微信通信检查）" class="headerlink" title="4、配置服务器地址（与微信通信检查）"></a>4、配置服务器地址（与微信通信检查）</h4><blockquote><h5 id="程序中写好通信接口，配置好路由，可查看图片中标记"><a href="#程序中写好通信接口，配置好路由，可查看图片中标记" class="headerlink" title="程序中写好通信接口，配置好路由，可查看图片中标记"></a><code>程序中写好通信接口，配置好路由，可查看图片中标记</code></h5><h5 id="慎重操作下图中的启用-停用按钮，会把公众号配置好的菜单下架掉（点击停用后可重新找回）"><a href="#慎重操作下图中的启用-停用按钮，会把公众号配置好的菜单下架掉（点击停用后可重新找回）" class="headerlink" title="慎重操作下图中的启用/停用按钮，会把公众号配置好的菜单下架掉（点击停用后可重新找回）"></a><code>慎重操作下图中的启用/停用按钮，会把公众号配置好的菜单下架掉（点击停用后可重新找回）</code></h5></blockquote><img width="40%" align="ceter" src="https://z3.ax1x.com/2021/10/20/5BYYOs.png" alt="ronaldoxzb" /><h4 id="5、配置接口安全域名，成功调用-jssdk-（需要域名）"><a href="#5、配置接口安全域名，成功调用-jssdk-（需要域名）" class="headerlink" title="5、配置接口安全域名，成功调用 jssdk （需要域名）"></a>5、配置接口安全域名，成功调用 jssdk （需要域名）</h4><blockquote><h5 id="配置安全域名目录见下图"><a href="#配置安全域名目录见下图" class="headerlink" title="配置安全域名目录见下图"></a><code>配置安全域名目录见下图</code></h5></blockquote><img width="40%" align="ceter" src="https://z3.ax1x.com/2021/10/20/5BYNmn.png" alt="ronaldoxzb" /></p><blockquote><h5 id="配置域名前注意下图中的表述，上传文件至服务器，验证服务器是否是你本人所有，域名的合规性。"><a href="#配置域名前注意下图中的表述，上传文件至服务器，验证服务器是否是你本人所有，域名的合规性。" class="headerlink" title="配置域名前注意下图中的表述，上传文件至服务器，验证服务器是否是你本人所有，域名的合规性。"></a><code>配置域名前注意下图中的表述，上传文件至服务器，验证服务器是否是你本人所有，域名的合规性。</code></h5></blockquote><img width="40%" align="ceter" src="https://z3.ax1x.com/2021/10/20/5BYJyj.png" alt="ronaldoxzb" /><h4 id="到此配置流程已结束，之后会出一片代码配置文章。"><a href="#到此配置流程已结束，之后会出一片代码配置文章。" class="headerlink" title="到此配置流程已结束，之后会出一片代码配置文章。"></a>到此配置流程已结束，之后会出一片代码配置文章。</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> FrontEnd-Tec </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+            <tag> wx-jssdk </tag>
+            
+            <tag> wx-config </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker相关</title>
       <link href="/2021/08/31/docker/"/>
       <url>/2021/08/31/docker/</url>
@@ -118,7 +147,7 @@
     
     
     <entry>
-      <title>JS引用类型的用法</title>
+      <title>js引用类型的用法</title>
       <link href="/2021/08/21/object-type/"/>
       <url>/2021/08/21/object-type/</url>
       

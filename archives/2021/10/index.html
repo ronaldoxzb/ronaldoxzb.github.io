@@ -11,7 +11,7 @@
   
   <title>
     
-      关于 
+      archive_a: 2021/10 
       
       
       |
@@ -110,70 +110,93 @@
 
 
       <div class="flex-container">
-        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
-<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
 
-<!-- LaTex Display -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
-<script>
-MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-  }
-};
-</script>
+<!-- last: 按年份把文章分组，当前遍历到的年份 -->
+<!-- now: 当前遍历到的文章的发布年份 -->
 
-
-
-  
-
-  
-
-  
-  <!-- 关于页 url形式：https://yoursite/about/ -->
-    <div class="container about-index">
-      <div class="markdown-body">
-        <h5 align="left">Hi 👋, I'm ronaldoxzb</h4>
-<h5 align="left">A passionate frontend developer from hangzhou of china</h4>
-
-<h5>
-
-<ul>
-<li><p>🔭 I’m currently working on <a target="_blank" rel="noopener" href="https://github.com/ronaldoxzb/egg-spider">egg-spider</a></p>
-</li>
-<li><p>🌱 I’m currently learning <strong>react,webpack,ts</strong></p>
-</li>
-<li><p>👯 I’m looking to collaborate on <a target="_blank" rel="noopener" href="https://github.com/ronaldoxzb/egg-spider">egg-spider</a></p>
-</li>
-<li><p>🤝 I’m looking for help with <a target="_blank" rel="noopener" href="https://www.yuque.com/midwayjs/midway_v2/lifecycle">midway.js</a></p>
-</li>
-<li><p>👨‍💻 All of my projects are available at <a href="ronaldoxzb.com">ronaldoxzb.com</a></p>
-</li>
-<li><p>📝 I regularly write articles on <a href="ronaldoxzb.com">ronaldoxzb.com</a></p>
-</li>
-<li><p>💬 Ask me about <strong>node.js,egg.js,vue,docker,mysql</strong></p>
-</li>
-<li><p>📫 How to reach me <strong><a href="mailto:&#x71;&#117;&#101;&#x65;&#x6e;&#120;&#x7a;&#98;&#64;&#103;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x71;&#117;&#101;&#x65;&#x6e;&#120;&#x7a;&#98;&#64;&#103;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a></strong></p>
-</li>
-<li><p>📄 Know about my experiences <a href="ronaldoxzb.com">ronaldoxzb.com</a></p>
-</li>
-<li><p>⚡ Fun fact <strong>Be an interesting person</strong></p>
-</h5></li>
-</ul>
-<h5 align="left">Languages and Tools:</h5>
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=ronaldoxzb&show_icons=true&locale=en&layout=compact" alt="ronaldoxzb" /></p>
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=ronaldoxzb&show_icons=true&locale=en" alt="ronaldoxzb" /></p>
-
+<div class="container archives">
+  <div class="post-list">
+    
+        <!-- 后续文章的发布年份呈现 -->
+        <div class="content-title">
+          <h2>
+            <span>2021</span>
+          </h2>
+        </div>
+      
+      <div class="post-item" title="微信js-sdk配置流程（测试号与公众号配置）">
+        <div class="time-m-d">10-14</div>
+        <div class="title">
+          <a href="/2021/10/14/wx-jssdk/">
+            <span>微信js-sdk配置流程（测试号与公众号配置）</span>
+          </a>
+        </div>
       </div>
-    </div>
-  
-
-  
+    
+      <div class="post-item" title="docker相关">
+        <div class="time-m-d">08-31</div>
+        <div class="title">
+          <a href="/2021/08/31/docker/">
+            <span>docker相关</span>
+          </a>
+        </div>
+      </div>
+    
+      <div class="post-item" title="egg  + sequelize + mysql + jwt + vue 全栈项目部署">
+        <div class="time-m-d">08-31</div>
+        <div class="title">
+          <a href="/2021/08/31/compose-deploy/">
+            <span>egg  + sequelize + mysql + jwt + vue 全栈项目部署</span>
+          </a>
+        </div>
+      </div>
+    
+      <div class="post-item" title="egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）">
+        <div class="time-m-d">08-26</div>
+        <div class="title">
+          <a href="/2021/08/26/egg-01/">
+            <span>egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）</span>
+          </a>
+        </div>
+      </div>
+    
+      <div class="post-item" title="世界的阴暗面，和我们假装美好的教育">
+        <div class="time-m-d">08-25</div>
+        <div class="title">
+          <a href="/2021/08/25/book-record/">
+            <span>世界的阴暗面，和我们假装美好的教育</span>
+          </a>
+        </div>
+      </div>
+    
+      <div class="post-item" title="js引用类型的用法">
+        <div class="time-m-d">08-21</div>
+        <div class="title">
+          <a href="/2021/08/21/object-type/">
+            <span>js引用类型的用法</span>
+          </a>
+        </div>
+      </div>
+    
+        <!-- 后续文章的发布年份呈现 -->
+        <div class="content-title">
+          <h2>
+            <span>2020</span>
+          </h2>
+        </div>
+      
+      <div class="post-item" title="为什么要有node.js中间层？">
+        <div class="time-m-d">08-20</div>
+        <div class="title">
+          <a href="/2020/08/20/hello-world/">
+            <span>为什么要有node.js中间层？</span>
+          </a>
+        </div>
+      </div>
+    
+  </div>
+</div>
 
         <div class="footer">
   <div class="social">
@@ -448,24 +471,6 @@ MathJax = {
 
 
         
-  
-    <div class="share-icon tools-bar-item">
-      <a href="javascript: void(0)" id="share-icon">
-        <i class="iconfont iconshare"></i>
-      </a>
-      <div class="share-content hidden">
-        
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + about + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2Fabout%2Findex.html + '" target="_blank" title="Twitter">
-            <i class="iconfont icon-twitter"></i>
-          </a>
-        
-        
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/about/index.html" target="_blank" title="Facebook">
-            <i class="iconfont icon-facebooksquare"></i>
-          </a>
-        
-      </div>
-    </div>
   
   
 <script src="/js/shares.js"></script>

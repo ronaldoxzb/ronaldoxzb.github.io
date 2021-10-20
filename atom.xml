@@ -6,7 +6,7 @@
   <link href="http://ronaldoxzb.cn/atom.xml" rel="self"/>
   
   <link href="http://ronaldoxzb.cn/"/>
-  <updated>2021-08-31T05:45:44.836Z</updated>
+  <updated>2021-10-20T06:26:08.601Z</updated>
   <id>http://ronaldoxzb.cn/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>微信js-sdk配置流程（测试号与公众号配置）</title>
+    <link href="http://ronaldoxzb.cn/2021/10/14/wx-jssdk/"/>
+    <id>http://ronaldoxzb.cn/2021/10/14/wx-jssdk/</id>
+    <published>2021-10-14T15:03:32.000Z</published>
+    <updated>2021-10-20T06:26:08.601Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、微信公号后台配置&quot;&gt;&lt;a href=&quot;#一、微信公号后台配置&quot; class=&quot;headerlink&quot; title=&quot;一、微信公号后台配置&quot;&gt;&lt;/a&gt;一、微信公号后台配置&lt;/h3&gt;&lt;h4 id=&quot;1、获取-AppID、AppSecret&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="FrontEnd-Tec" scheme="http://ronaldoxzb.cn/categories/FrontEnd-Tec/"/>
+    
+    
+    <category term="javascript" scheme="http://ronaldoxzb.cn/tags/javascript/"/>
+    
+    <category term="wx-jssdk" scheme="http://ronaldoxzb.cn/tags/wx-jssdk/"/>
+    
+    <category term="wx-config" scheme="http://ronaldoxzb.cn/tags/wx-config/"/>
+    
+  </entry>
+  
+  <entry>
     <title>docker相关</title>
     <link href="http://ronaldoxzb.cn/2021/08/31/docker/"/>
     <id>http://ronaldoxzb.cn/2021/08/31/docker/</id>
     <published>2021-08-31T10:03:32.000Z</published>
-    <updated>2021-08-31T05:45:44.836Z</updated>
+    <updated>2021-10-20T06:26:08.601Z</updated>
     
     
       
@@ -47,7 +76,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/31/compose-deploy/"/>
     <id>http://ronaldoxzb.cn/2021/08/31/compose-deploy/</id>
     <published>2021-08-31T09:03:32.000Z</published>
-    <updated>2021-08-31T05:45:44.836Z</updated>
+    <updated>2021-10-20T06:26:08.601Z</updated>
     
     
       
@@ -80,7 +109,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/26/egg-01/"/>
     <id>http://ronaldoxzb.cn/2021/08/26/egg-01/</id>
     <published>2021-08-26T18:03:32.000Z</published>
-    <updated>2021-08-31T05:45:44.836Z</updated>
+    <updated>2021-10-20T06:26:08.601Z</updated>
     
     
       
@@ -111,7 +140,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/25/book-record/"/>
     <id>http://ronaldoxzb.cn/2021/08/25/book-record/</id>
     <published>2021-08-25T16:03:32.000Z</published>
-    <updated>2021-08-31T05:45:44.836Z</updated>
+    <updated>2021-10-20T06:26:08.601Z</updated>
     
     
       
@@ -132,11 +161,11 @@
   </entry>
   
   <entry>
-    <title>JS引用类型的用法</title>
+    <title>js引用类型的用法</title>
     <link href="http://ronaldoxzb.cn/2021/08/21/object-type/"/>
     <id>http://ronaldoxzb.cn/2021/08/21/object-type/</id>
     <published>2021-08-21T15:03:32.000Z</published>
-    <updated>2021-08-31T05:45:44.836Z</updated>
+    <updated>2021-10-20T06:26:08.601Z</updated>
     
     
       
@@ -161,7 +190,7 @@
     <link href="http://ronaldoxzb.cn/2020/08/20/hello-world/"/>
     <id>http://ronaldoxzb.cn/2020/08/20/hello-world/</id>
     <published>2020-08-20T20:03:32.000Z</published>
-    <updated>2021-08-31T05:45:44.836Z</updated>
+    <updated>2021-10-20T06:26:08.601Z</updated>
     
     
       
