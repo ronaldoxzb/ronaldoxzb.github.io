@@ -5,8 +5,10 @@ type: "about"
 ---
 
 
-<h4 align="left">Hi 👋, I'm ronaldoxzb</h4>
-<h4 align="left">A passionate frontend developer from hangzhou of china</h4>
+<h5 align="left">Hi 👋, I'm ronaldoxzb</h4>
+<h5 align="left">A passionate frontend developer from hangzhou of china</h4>
+
+<h5>
 
 - 🔭 I’m currently working on [egg-spider](https://github.com/ronaldoxzb/egg-spider)
 
@@ -27,8 +29,9 @@ type: "about"
 - 📄 Know about my experiences [ronaldoxzb.com](ronaldoxzb.com)
 
 - ⚡ Fun fact **Be an interesting person**
+</h5>
 
-<h4 align="left">Languages and Tools:</h4>
+<h5 align="left">Languages and Tools:</h5>
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=ronaldoxzb&show_icons=true&locale=en&layout=compact" alt="ronaldoxzb" /></p>
 
