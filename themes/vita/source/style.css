@@ -1,7 +1,6 @@
 body {
     line-height: 1;
 }
-
 ol,
 ul {
     list-style: none;
@@ -147,13 +146,14 @@ section .location {
     margin-right: 1.2em;
 }
 
-#header h1.name {
+#header h2.name {
     font-size: 2.8rem;
-    font-weight: 100;
+    font-weight: 200;
+    margin: 0;
     line-height: 100%;
 }
 
-#header h2.label {
+#header h3.label {
     color: #202931;
     font-size: 1.47rem;
     font-weight: 300;
@@ -265,9 +265,9 @@ h2.section-title {
 
 .company::before,
 .organization::before,
-.awarder::before {
+/* .awarder::before {
     content: "at "
-}
+} */
 
 .company,
 .institution,
@@ -487,7 +487,9 @@ ul.courses li:hover {
     display: block;
     opacity: 1 !important;
 }
-
+.display h5{
+    margin: 0.4rem;
+}
 .margin1 {
     margin-bottom: .5rem;
 }
@@ -534,7 +536,6 @@ ul.courses li:hover {
 
     .toggle-item+label {
         display: block;
-        margin-top: -16px;
     }
 
     .toggle-item:checked+label:after {

@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: RONALDOXZB
+title: 辛正宝-个人简历
 subtitle: ''
 description: ''
 keywords:
@@ -97,9 +97,9 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: oranges
+# theme: oranges
 # theme: cactus
-# theme: vita
+theme: vita
 
 feed:
   type: atom

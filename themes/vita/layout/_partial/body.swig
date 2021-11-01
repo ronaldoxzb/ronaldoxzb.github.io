@@ -1,13 +1,13 @@
 <div id="resume">
     <header id="header" class="clear">
         <div>
-            <h1 class="name">{{ theme.resume.name }}</h1>
-            <h2 class="label">{{ theme.resume.jobtitle }}</h2>
+            <h2 class="name">{{ theme.resume.name }}</h1>
+            <h3 class="label">{{ theme.resume.jobtitle }}</h2>
         </div>
 
         <span class="location">
             {% for item in theme.resume.location %}
-            <span class="{{ item.key }}">{{ item.value }},</span>
+            <span class="{{ item.key }}">{{ item.value }} </span>
             {% endfor %}
         </span>
 
@@ -45,17 +45,14 @@
 
     <section class="section margin1">
         <header>
-            <h2 class="section-title">Skills</h2>
+            <h2 class="section-title">专业技能</h2>
         </header>
         <section id="skills">
             {% for item in theme.resume.skills %}
             <div class="item">
-                <h3 class="name">
-                    {{item.title}}
-                </h3>
-
+               
                 <div class="level {{item.level}}">
-                    <em>{{item.level.toUpperCase()}}</em>
+                    <em>{{item.levelname}}</em>
                     <div class="bar"></div>
                 </div>
                 <ul class="keywords">
@@ -70,7 +67,7 @@
 
     <section class="section">
         <header>
-            <h2 class="section-title">Work Experience <span
+            <h2 class="section-title">工作经历<span
                     class="item-count">({{theme.resume.experience.length}})</span></h2>
         </header>
 
@@ -110,7 +107,7 @@
 
     <section class="section">
         <header>
-            <h2 class="section-title">Education <span class="item-count">(1)</span></h2>
+            <h2 class="section-title">教育背景<span class="item-count">(1)</span></h2>
         </header>
 
         <section id="education">
@@ -118,9 +115,7 @@
             <section class="education-item">
                 <header>
                     <div class="header">
-                        <div class="course">
-                            {{item.course}}
-                        </div>
+                    
                         <div class="institution">
                             {{item.institution}}
                         </div>
@@ -135,6 +130,9 @@
                         <strong class="fa fa-map-marker"></strong> <span>{{item.location}}</span>
                     </div>
                 </div>
+                <div class="course">
+                            {{item.course}}
+                        </div>
             </section>
             {% endfor %}
 
@@ -143,7 +141,8 @@
 
     <section class="section">
         <header>
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">项目经验<span
+                    class="item-count">({{theme.resume.projects.length}})</span></h2>
         </header>
         {% for item in theme.resume.projects %}
         <section id="project">
@@ -180,20 +179,15 @@
 
     <section class="section margin1">
         <header>
-            <h2 class="section-title">Languages</h2>
+            <h2 class="section-title">主要荣誉<span
+                    class="item-count">({{theme.resume.languages.length}})</span></h2>
         </header>
         <section id="languages">
             {% for item in theme.resume.languages %}
             <div class="display">
-                <h3 class="language">
+                <h5 class="language">
                     {{item.name}}
-                </h3>
-                <div class="item">
-                    <div class="level fluency {{item.proficiency}}">
-                        <em>{{item.proficiency.toUpperCase()}}</em>
-                        <div class="bar"></div>
-                    </div>
-                </div>
+                </h5>
             </div>
             {% endfor %}
         </section>

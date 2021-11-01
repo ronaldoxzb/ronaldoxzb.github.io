@@ -14,80 +14,95 @@ resume:
     - key: countryCode
       value:  中国🇨🇳
   contact:
+    - icon: fa-external-link
+      text: https://ronaldoxzb.com
     - icon: fa-envelope
-      text: queenxzb@163.com
+      text: queenxzb@gmail.com
     - icon: fa-phone-square
       text: 17767711318
   profiles:
     - icon: fa-github
       text: https://github.com/ronaldoxzb
       link: https://github.com/ronaldoxzb
-  overview: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  overview: 具有产品思维的程序员，性格开朗，对待工作认真负责，待人真诚，善于沟通、协调有较强的组织能力与团队精神。对环境的适应能力强，做事情认真细致，充满匠心精神。很好的的自我调节能力，乐于钻研新技术。
       # level: beginner, intermediate, advanced, master
   skills:
-    - title: Skill Group 1
-      level: advanced
-      items: [Lorem, Ipsum, Dolor, Sit, Amet]
-    - title: Skill Group 2
-      level: intermediate
-      items: [Consectetur, Adipiscing, Elit]
-    - title: Skill Group 3
-      level: beginner
-      items: [Sed do, Eiusmod, Tempor, Incididunt]
+    - level: master
+      levelname: 精通
+      items: [javascript, es6, vue.js, 钉钉/微信小程序, uni-app, vue-cli3, element-ui, ant-design,]
+    - level: advanced
+      levelname: 熟练掌握
+      items: [html, css,  node.js, egg.js, redis, sequelize, nginx, docker, docker-compose, ]
+    - level: intermediate
+      levelname: 熟悉
+      items: [react.js, webpack, ts, nacos, midway.js, rabbitmq, taro.js]
   experience:
-    - position: Job Title 1
-      duration: Apr 2016 - Now
-      company: Your 1st, Inc.
-      website: website.com
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    - position:  前端开发主管
+      duration: 2020.3 - 至今
+      company: Babycare(夕尔控股)
+      # website: website.com
+      description: 一：负责公司<b>核心产品框架设计、核心代码编写</b>及相关文档维护 </p>二：制定团队代码规范和git分支提交规范，开发提升工作效率的<b>脚本工具或node服务</b></p>三：理解项目需求，拆分需求，分配开发任务，配合项目发布事宜。
       hilights: [
-        Optimized an algorithm that holds the current world record for Weisman Scores,
-        Hilight 2,
-        Hilight 3,
+        <b>1:构建公司内部基于vue.js的通用框架，构建基于uni-app vue-cli的通用小程序框架</b>,
+        <b>2:完成xier-cli脚手架工具，并上传至公司私服，快速拉取代码模板进行开发</b>,
+        <b>3:完成gitlab webhooks 调用node服务自动merge代码，完成油猴脚本，根据禅道迭代版本自动合并release分支，提高生产力</b>,
+        4:制定前端开发规范并要求组内成员践行，配置通用eslint代码规范，制定git分支规范维护好各环境分支,
+        5:定期开展组内技术分享，促进团队成长，关注前端前沿技术，通过新技术服务团队和业务,
+        6:评审项目需求，并将需求拆解，合理安排开发任务，积极推动项目开展，保证项目按时迭代，配合相关部门完成项目发布,
       ]
-    - position: Job Title 2
-      duration: Apr 2013 - Mar 2016
-      company: Your 2nd, Inc.
-      website: website.com
-      description: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    - position: 前端开发工程师
+      duration: 2017.3 - 2020.3
+      company: 杭州千之软件技术有限公司
+      # website: website.com
+      description: 一：负责公司钉钉小程序框架设计、代码编写</p>二：配合后台完成数据接口设计、接口对接及页面数据渲染</p>三：偶有参与后台接口编写、脚本编写
       hilights: [
-        Hilight 1,
-        Optimized an algorithm that holds the current world record for Weisman Scores
+        1:工作安排高效、高质地完成代码编写，确保符合规范的前端代码规范,
+        2:<b>负责公司H5和微信小程序，钉钉小程序等前端⻚面架构的搭建及开发</b>,
+        3:与后端开发团队紧密配合，确保代码有效对接，优化网站前端性能,
+        4:解决项目开发过程中遇到的技术和业务难题，高质量完成web前端开发工作,
       ]
-    - position: Job Title 3
-      duration: Dec 2011 - Mar 2012
-      company: Your 3rd Co, Ltd.
-      website: website.com
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  
+    - position: 助理软件工程师
+      duration: 2016.7-2017.2
+      company: accenture埃森哲信息技术（大连）有限公司
+      # website: website.com
+      description: 一：学习并熟悉软件开发流程，学习沟通技巧，完成主管所安排开发任务，<b>主要基于 adobe aem开发</b>
+      hilights: [
+        1:学习⽇常⼯作中的主要应⽤技术并对了解项⽬的整体流程,
+        2:根据技术⽂档中详细描述，完成软件功能的开发和测试，并尝试理解为什么要如此实现,
+        3:在项⽬的开发过程中及开发后期整理相关的⽂档，做好⼯作记录，并按公司规定填写相关材料,
+      ]
       # Education
   education:
-    - institution: Your First University
-      course: Masters Information Technology
-      duration: Jul 2011 - Dec 2012
-      location: Consectetur adipiscing elit
-      major: Lorem ipsum dolor sit amet
-    - institution: Your Second University
-      course: Masters Information Technology
-      duration: Aug 2007 - Jun 2011
-      location: Ut enim ad minim veniam
-      major: Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+    - institution: ⻓春⼯业⼤学—数字媒体技术（本科）
+      duration:  2012.10 - 2012.06
+      location: 吉林省，⻓春市
+      course: ⽹⻚设计 java javascript html android应⽤编程 ios编程 数据结构 数据库系统原理 软件⼯程 影视基础 数字媒体后期制作
 # Showcase your work
   projects:
-  - title: Project Name 1
-    description: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    duration: Jul 2011 - Dec 2012
-    contribution: Contributor.
-  - title: Project Name 2
-    description: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    duration: Aug 2007 - Jun 2011
-    contribution: Creator and maintainer.
+  - title: oms订单管理系统
+    description: 从0搭建公司oms订单管理后台系统，作为<b>核心开发人员</b>，选择vue.js为基本框架，搭配使用vue-router，vuex，axios等相关插件，ant-designui组件库进行开发。</p>接入钉钉sso扫码登录，期间完成<b>系统路由菜单/按钮等权限的控制，</b>完成axios拦截器的全局配置，filter的挂载</p>vue.config.js文件的<b>proxy的多服务配置，相关js库的cdn引入</b></p>完成字典接口vuex的缓存配置，mixins混入常用变量及方法</p>完成仓库，店铺，商品选择，异步导出等公共组件的封装</p>完成库存管理，调拨管理，渠道管理，采购等模块的功能开发<b>抽离模块页面的每个操作为一个action，提高代码可读性</b><p>经过团队5人半年开发，整个系统基本功能已经实现，替换公司原有巨益oms，不但为公司节省成本，更能实现更多个性化的定制功能，系统已经历今年6.18和双11的考验</p>
+    duration: 2020.3 - 2020.10
+    contribution: 核心开发
+  - title: 权限管理系统
+    description: 为了实现公司全部系统的权限控制，<b>独立负责系统开发，搭建统一的授权后台系统，</b>通过创建应用（管理系统），用户，并对用户赋予角色，对角色赋予菜单权限实现其他各系统的菜单/按钮权限控制</p>期间接入钉钉sso扫码登录，搭配使用vue-router，vuex，axios等相关插件，element-ui组件库进行开发接入钉钉sso扫码登录，期间完成系统路由菜单/按钮等权限的控制，完成axios拦截器的全局配置，filter的挂载，封装公共组件，等常规操作</p>完成用户管理，角色管理，菜单管理，应用管理，同步菜单等模块为了实现不同环境菜单的同步，通过对比debug与test 环境菜单数据, 查找新增菜单或更新的菜单，循环调用新增接口进行新增</p>一个月完成上线，成功支撑起oms用户/菜单权限的问题。到目前<b>公司10多个后台管理系统都已接入这套权限，系统运行期间基本没出过问题</b></p>
+    duration: Aug 2020.4 - 2020.5
+    contribution: 独立开发 负责人
+  - title: 内购小程序商城 
+    description: 作为公司发放福利的一种方式，开发内部小程序商城可供内购，<b>一期使用钉钉原生小程序开发，二期考虑到项目的维护问题，使用uni-app重构</b></p>期间，搭建基于vue-cli 的开发环境，并可编译到h5,mp-alipay(钉钉平台),mp-weixin等平台，封装公共组件，mixins混入常用变量及方法等常规操作。</p><b>通过注册全局监听事件解决登录失效问题</b>, 编写购物车，订单，支付，识别淘口令等核心代码。</p>经过两期的迭代，打通小程序vue开发，使技术栈更加统一，项目更好维护。已成为<b>公司内部使用频率最高的小程序</b></p>
+    duration: Aug 2020.6 - 2020.8
+    contribution: 核心开发 负责人
+  - title: <a href="https://ronaldoxzb.cn/">egg-spider 个人项目</a>
+    description: egg.js(jwt) + mysql(sequelize) + redis + docker + docker-compose + nginx + vue + element-ui 全栈获取全国省市区数据，前后端分离【工具】项目，实现https一键部署。用户注册登录（jwt）</p>统计局网页省市区数据的爬取，部门省份数据量很大，加入redis提高接口响应速度</p>实现资源的监控（node os),羽雀api的调用,邮件的发送基于(smtp.qq.com)</p>docker-compose部署前后端，购买域名获取证书，实现nginx代理实现https服务</p><b>熟悉整个web项目的docker发布流程，独立完成整个项目的开发及部署，项目预览地址</b><p>
+    duration: Aug 2021.7 - 2020.8
+    contribution: 独立开发
 # Langguages Known 
 # proficiency: beginner, intermediate, advanced, master, fluent, native speaker
   languages:
-  - name: English
-    proficiency: fluent
-  - name: Hindi
-    proficiency: native speaker
-  - name: Hindi
-    proficiency: fluent
+  - name: 2021年获得PMI项目管理职业资格认证（PMP证书）
+  - name: 2020年获得国家初级育婴师证
+  - name: 2019年获得杭州千之软件技术有限公司年度优秀员⼯奖
+  - name: 2016年在埃森哲（Digital部⻔）年会中演唱歌曲获得⼆等奖
+  - name: 2015年获得“⼤学⽣创新创业⼤赛”优秀奖。
+  - name: 2014年作为院⽂艺部部⻓成功策划“舞动⻘春”⽐赛，丰富了学⽣的课余⽣活。
+  - name: 2013年全国“⼤学⽣⼴告设计⼤赛”获得三等奖。
+  - name: 2013年届新⽣⼊学军训合唱⽐赛，指导本院学⽣获得⼆等奖。
