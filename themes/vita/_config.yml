@@ -91,9 +91,9 @@ resume:
     description: 作为公司发放福利的一种方式，开发内部小程序商城可供内购，<b>一期使用钉钉原生小程序开发，二期考虑到项目的维护问题，使用uni-app重构</b></p>期间，搭建基于vue-cli 的开发环境，并可编译到h5,mp-alipay(钉钉平台),mp-weixin等平台，封装公共组件，mixins混入常用变量及方法等常规操作。</p><b>通过注册全局监听事件解决登录失效问题</b>, 编写购物车，订单，支付，识别淘口令等核心代码。</p>经过两期的迭代，打通小程序vue开发，使技术栈更加统一，项目更好维护。已成为<b>公司内部使用频率最高的小程序</b></p>
     duration: Aug 2020.6 - 2020.8
     contribution: 核心开发 负责人
-  - title: <a href="https://ronaldoxzb.cn/">egg-spider 个人项目</a>
+  - title: <a href="https://ronaldoxzb.cn">egg-spider 个人项目</a>
     description: egg.js(jwt) + mysql(sequelize) + redis + docker + docker-compose + nginx + vue + element-ui 全栈获取全国省市区数据，前后端分离【工具】项目，实现https一键部署。用户注册登录（jwt）</p>统计局网页省市区数据的爬取，部门省份数据量很大，加入redis提高接口响应速度</p>实现资源的监控（node os),羽雀api的调用,邮件的发送基于(smtp.qq.com)</p>docker-compose部署前后端，购买域名获取证书，实现nginx代理实现https服务</p><b>熟悉整个web项目的docker发布流程，独立完成整个项目的开发及部署，项目预览地址见标题 账号：admin 密码：admin</b><p>
-    duration: Aug 2021.7 - 2020.8
+    duration: Aug 2021.7 - 2021.8
     contribution: 独立开发
 # Langguages Known 
 # proficiency: beginner, intermediate, advanced, master, fluent, native speaker
