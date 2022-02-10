@@ -11,7 +11,7 @@
   
   <title>
     
-      关于 
+      如何优雅的发布npm包 
       
       
       |
@@ -133,47 +133,195 @@ MathJax = {
   
 
   
-  <!-- 关于页 url形式：https://yoursite/about/ -->
-    <div class="container about-index">
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">如何优雅的发布npm包</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="更新时间"></i>
+          2022-02-10 10:14:01
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/FrontEnd-Tec/" title="FrontEnd-Tec">
+                    <b>#</b> FrontEnd-Tec
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/sh/" title="sh">
+                    <b>#</b> sh
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/npm/" title="npm">
+                    <b>#</b> npm
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
       <div class="markdown-body">
-        <h5 align="left">Hi 👋, I'm ronaldoxzb</h4>
-<h5 align="left">A passionate frontend developer from hangzhou of china</h4>
-
-<h5>
-
-<ul>
-<li><p>🔭 I’m currently working on <a target="_blank" rel="noopener" href="https://github.com/ronaldoxzb/egg-spider">egg-spider</a></p>
-</li>
-<li><p>🌱 I’m currently learning <strong>react,webpack,ts</strong></p>
-</li>
-<li><p>👯 I’m looking to collaborate on <a target="_blank" rel="noopener" href="https://github.com/ronaldoxzb/egg-spider">egg-spider</a></p>
-</li>
-<li><p>🤝 I’m looking for help with <a target="_blank" rel="noopener" href="https://www.yuque.com/midwayjs/midway_v2/lifecycle">midway.js</a></p>
-</li>
-<li><p>👨‍💻 All of my projects are available at <a href="ronaldoxzb.com">ronaldoxzb.com</a></p>
-</li>
-<li><p>📝 I regularly write articles on <a href="ronaldoxzb.com">ronaldoxzb.com</a></p>
-</li>
-<li><p>💬 Ask me about <strong>node.js,egg.js,vue,docker,mysql</strong></p>
-</li>
-<li><p>📫 How to reach me <strong><a href="mailto:&#113;&#x75;&#x65;&#x65;&#110;&#x78;&#x7a;&#98;&#x40;&#x67;&#109;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;">&#113;&#x75;&#x65;&#x65;&#110;&#x78;&#x7a;&#98;&#x40;&#x67;&#109;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a></strong></p>
-</li>
-<li><p>📄 Know about my experiences <a href="ronaldoxzb.com">ronaldoxzb.com</a></p>
-</li>
-<li><p>⚡ Fun fact <strong>Be an interesting person</strong></p>
-</h5></li>
-</ul>
-<h5 align="left">Languages and Tools:</h5>
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=ronaldoxzb&show_icons=true&locale=en&layout=compact" alt="ronaldoxzb" /></p>
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=ronaldoxzb&show_icons=true&locale=en" alt="ronaldoxzb" /></p>
+        <h4 id="一、nrm管理镜像源"><a href="#一、nrm管理镜像源" class="headerlink" title="一、nrm管理镜像源"></a>一、nrm管理镜像源</h4><h4 id="前提是搭好npm私有服务器"><a href="#前提是搭好npm私有服务器" class="headerlink" title="前提是搭好npm私有服务器"></a>前提是搭好npm私有服务器</h4><blockquote>
+<p>我们可以更改npm源为本地地址：</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置npm使用的源为本地私服</span></span><br><span class="line">npm <span class="built_in">set</span> registry http://localhost:4873/</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>或者针对某个依赖安装时选用自己的源地址：</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install lodash --registry http://localhost:4873</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>　但是如果我们想再次切换到淘宝或者其他的镜像地址，就不那么方便了；我们可以通过nrm这个工具来管理我们的源地址，可以查看和切换地址；首先还是进行安装：</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nrm</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>安装后我们可以通过<code>nrm add [name] [address]</code>这个命令来新增一个源地址：</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm add localnpm http://localhost:4873/</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>　使用nrm ls可以查看我们使用的所有源地址，带*是正在使用的地址；通过nrm use [name]来切换地址：</p>
+</blockquote>
+<p><img src="https://ronaldoxzb.com/upload/2022/02/WeChatc9c7dcbf4fa55e66761034cb45c3d0df-9dc29e918d2e483696ef9288f9bea7ba.png" alt="WeChatc9c7dcbf4fa55e66761034cb45c3d0df.png"></p>
+<h4 id="二、npm发布包"><a href="#二、npm发布包" class="headerlink" title="二、npm发布包"></a>二、npm发布包</h4><blockquote>
+<p>首先我们需要准备一个账号，可以使用–registry来指定npm服务器，或者直接使用nrm来管理</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm adduser</span><br><span class="line">npm adduser --registry=http://example.com</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>然后进行登录，输入你注册的账号密码邮箱：</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>还可以用下面命令退出当前账号：</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">logout</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果不知道当前登录的账号可以用who命令查看身份：</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">who</span> am i</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>登录成功就可以将我们的包推送到服务器上去了，执行下面命令，会看到一堆的npm notice：</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果某版本的包有问题，我们还可以将其撤回</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm unpublish [pkg]@[version]</span><br></pre></td></tr></table></figure>
 
       </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/10/14/wx-jssdk/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="更新时间"></i>
+              2022-02-10 10:14:01
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/FrontEnd-Tec/" title="FrontEnd-Tec">
+                        <b>#</b> FrontEnd-Tec
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="标签"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/sh/" title="sh">
+                        <b>#</b> sh
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/npm/" title="npm">
+                        <b>#</b> npm
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
     </div>
-  
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81nrm%E7%AE%A1%E7%90%86%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-text">一、nrm管理镜像源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E6%8F%90%E6%98%AF%E6%90%AD%E5%A5%BDnpm%E7%A7%81%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">前提是搭好npm私有服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81npm%E5%8F%91%E5%B8%83%E5%8C%85"><span class="toc-text">二、npm发布包</span></a></li></ol>
+    </div>
+  </div>
 
   
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <div id="vcomments"></div>
+
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: '7X0kL3ecg1bjvYt2yrJl3Cvc-gzGzoHsz',
+      appKey: 'FcRvdMWiqS8NATn4Ao8Chf56',
+      placeholder: 'Welcome My Friends!',
+      avatar: 'retro',
+      lang: 'zh-CN'
+    })
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
+      </div>
+    
+  </div>
+
 
         <div class="footer">
   <div class="social">
@@ -455,12 +603,12 @@ MathJax = {
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + about + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2Fabout%2Findex.html + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E5%8F%91%E5%B8%83npm%E5%8C%85 + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2F2022%2F02%2F10%2Fnpm-publish%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/about/index.html" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/2022/02/10/npm-publish/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
