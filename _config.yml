@@ -97,9 +97,11 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: oranges
+# 博客
+theme: oranges
 # theme: cactus
-theme: vita
+# 个人
+# theme: vita 
 
 feed:
   type: atom
