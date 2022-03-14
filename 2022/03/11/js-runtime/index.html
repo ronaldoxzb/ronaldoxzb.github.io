@@ -11,7 +11,7 @@
   
   <title>
     
-      archive_a: 2020 
+      javascript运行原理 
       
       
       |
@@ -110,127 +110,208 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2022</span>
-          </h2>
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">javascript运行原理</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="更新时间"></i>
+          2022-03-11 14:29:32
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/FrontEnd-Tec/" title="FrontEnd-Tec">
+                    <b>#</b> FrontEnd-Tec
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/node/" title="node">
+                    <b>#</b> node
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/javascript/" title="javascript">
+                    <b>#</b> javascript
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/v8/" title="v8">
+                    <b>#</b> v8
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/parser/" title="parser">
+                    <b>#</b> parser
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/interpreter/" title="interpreter">
+                    <b>#</b> interpreter
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/compiler/" title="compiler">
+                    <b>#</b> compiler
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p><img src="https://www.bilibili.com/video/BV1vh411Z7QG" alt="参考视频"></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/03/08/web-attack/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="更新时间"></i>
+              2022-03-11 14:29:32
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/FrontEnd-Tec/" title="FrontEnd-Tec">
+                        <b>#</b> FrontEnd-Tec
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="标签"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/node/" title="node">
+                        <b>#</b> node
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/javascript/" title="javascript">
+                        <b>#</b> javascript
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/v8/" title="v8">
+                        <b>#</b> v8
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/parser/" title="parser">
+                        <b>#</b> parser
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/interpreter/" title="interpreter">
+                        <b>#</b> interpreter
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/compiler/" title="compiler">
+                        <b>#</b> compiler
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="javascript运行原理">
-        <div class="time-m-d">03-11</div>
-        <div class="title">
-          <a href="/2022/03/11/js-runtime/">
-            <span>javascript运行原理</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="常见的web攻击及防范">
-        <div class="time-m-d">03-08</div>
-        <div class="title">
-          <a href="/2022/03/08/web-attack/">
-            <span>常见的web攻击及防范</span>
-          </a>
-        </div>
-      </div>
+
     
-      <div class="post-item" title="如何优雅的发布npm包">
-        <div class="time-m-d">02-10</div>
-        <div class="title">
-          <a href="/2022/02/10/npm-publish/">
-            <span>如何优雅的发布npm包</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2021</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="微信js-sdk配置流程（测试号与公众号配置）">
-        <div class="time-m-d">10-14</div>
-        <div class="title">
-          <a href="/2021/10/14/wx-jssdk/">
-            <span>微信js-sdk配置流程（测试号与公众号配置）</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="docker相关">
-        <div class="time-m-d">08-31</div>
-        <div class="title">
-          <a href="/2021/08/31/docker/">
-            <span>docker相关</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="egg  + sequelize + mysql + jwt + vue 全栈项目部署">
-        <div class="time-m-d">08-31</div>
-        <div class="title">
-          <a href="/2021/08/31/compose-deploy/">
-            <span>egg  + sequelize + mysql + jwt + vue 全栈项目部署</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）">
-        <div class="time-m-d">08-26</div>
-        <div class="title">
-          <a href="/2021/08/26/egg-01/">
-            <span>egg  + sequelize + mysql + jwt + vue 实现全栈服务（一）</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="世界的阴暗面，和我们假装美好的教育">
-        <div class="time-m-d">08-25</div>
-        <div class="title">
-          <a href="/2021/08/25/book-record/">
-            <span>世界的阴暗面，和我们假装美好的教育</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="javascript引用类型的用法">
-        <div class="time-m-d">08-21</div>
-        <div class="title">
-          <a href="/2021/08/21/object-type/">
-            <span>javascript引用类型的用法</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2020</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="为什么要有node.js中间层？">
-        <div class="time-m-d">08-20</div>
-        <div class="title">
-          <a href="/2020/08/20/hello-world/">
-            <span>为什么要有node.js中间层？</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <div id="vcomments"></div>
+
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: '7X0kL3ecg1bjvYt2yrJl3Cvc-gzGzoHsz',
+      appKey: 'FcRvdMWiqS8NATn4Ao8Chf56',
+      placeholder: 'Welcome My Friends!',
+      avatar: 'retro',
+      lang: 'zh-CN'
+    })
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         <div class="footer">
   <div class="social">
@@ -505,6 +586,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + javascript%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86 + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2F2022%2F03%2F11%2Fjs-runtime%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/2022/03/11/js-runtime/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>

