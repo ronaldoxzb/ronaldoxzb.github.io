@@ -6,7 +6,7 @@
   <link href="http://ronaldoxzb.cn/atom.xml" rel="self"/>
   
   <link href="http://ronaldoxzb.cn/"/>
-  <updated>2022-03-14T09:33:43.617Z</updated>
+  <updated>2022-06-10T03:09:32.706Z</updated>
   <id>http://ronaldoxzb.cn/</id>
   
   <author>
@@ -17,18 +17,177 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>javascript运行原理</title>
-    <link href="http://ronaldoxzb.cn/2022/03/11/js-runtime/"/>
-    <id>http://ronaldoxzb.cn/2022/03/11/js-runtime/</id>
+    <title>树型结构转一维List</title>
+    <link href="http://ronaldoxzb.cn/2022/05/12/tree-to-list/"/>
+    <id>http://ronaldoxzb.cn/2022/05/12/tree-to-list/</id>
+    <published>2022-05-12T10:34:32.000Z</published>
+    <updated>2022-06-10T03:09:32.706Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;树形结构转一维-list&quot;&gt;&lt;a href=&quot;#树形结构转一维-list&quot; class=&quot;headerlink&quot; title=&quot;树形结构转一维 list&quot;&gt;&lt;/a&gt;树形结构转一维 list&lt;/h3&gt;&lt;h4 id=&quot;原始数据&quot;&gt;&lt;a href=&quot;#原始数据&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="FrontEnd-Tec" scheme="http://ronaldoxzb.cn/categories/FrontEnd-Tec/"/>
+    
+    
+    <category term="javascript" scheme="http://ronaldoxzb.cn/tags/javascript/"/>
+    
+    <category term="tree" scheme="http://ronaldoxzb.cn/tags/tree/"/>
+    
+    <category term="dfs" scheme="http://ronaldoxzb.cn/tags/dfs/"/>
+    
+    <category term="bfs" scheme="http://ronaldoxzb.cn/tags/bfs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一维List转树形结构</title>
+    <link href="http://ronaldoxzb.cn/2022/05/05/list-to-tree/"/>
+    <id>http://ronaldoxzb.cn/2022/05/05/list-to-tree/</id>
+    <published>2022-05-05T17:24:32.000Z</published>
+    <updated>2022-06-10T03:09:32.706Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一维-list-生成树行结构&quot;&gt;&lt;a href=&quot;#一维-list-生成树行结构&quot; class=&quot;headerlink&quot; title=&quot;一维 list 生成树行结构&quot;&gt;&lt;/a&gt;一维 list 生成树行结构&lt;/h3&gt;&lt;h4 id=&quot;原始数据&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="FrontEnd-Tec" scheme="http://ronaldoxzb.cn/categories/FrontEnd-Tec/"/>
+    
+    
+    <category term="javascript" scheme="http://ronaldoxzb.cn/tags/javascript/"/>
+    
+    <category term="tree" scheme="http://ronaldoxzb.cn/tags/tree/"/>
+    
+    <category term="object-reference" scheme="http://ronaldoxzb.cn/tags/object-reference/"/>
+    
+    <category term="list" scheme="http://ronaldoxzb.cn/tags/list/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>node模块机制</title>
+    <link href="http://ronaldoxzb.cn/2022/04/26/node-module/"/>
+    <id>http://ronaldoxzb.cn/2022/04/26/node-module/</id>
+    <published>2022-04-26T13:03:32.000Z</published>
+    <updated>2022-06-10T03:09:32.706Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;node-模块&quot;&gt;&lt;a href=&quot;#node-模块&quot; class=&quot;headerlink&quot; title=&quot;node 模块&quot;&gt;&lt;/a&gt;node 模块&lt;/h3&gt;&lt;h4 id=&quot;核心模块&quot;&gt;&lt;a href=&quot;#核心模块&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="BackEnd-Tec" scheme="http://ronaldoxzb.cn/categories/BackEnd-Tec/"/>
+    
+    
+    <category term="node" scheme="http://ronaldoxzb.cn/tags/node/"/>
+    
+    <category term="modules" scheme="http://ronaldoxzb.cn/tags/modules/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript运行原理(三)</title>
+    <link href="http://ronaldoxzb.cn/2022/03/15/js-runtime3/"/>
+    <id>http://ronaldoxzb.cn/2022/03/15/js-runtime3/</id>
+    <published>2022-03-15T19:22:01.000Z</published>
+    <updated>2022-06-10T03:09:32.706Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h4&gt;&lt;p&gt;栈：先进后出，进栈，出栈&lt;/p&gt;
+&lt;p&gt;队列：先进先出&lt;/p&gt;
+&lt;h4 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="FrontEnd-Tec" scheme="http://ronaldoxzb.cn/categories/FrontEnd-Tec/"/>
+    
+    
+    <category term="node" scheme="http://ronaldoxzb.cn/tags/node/"/>
+    
+    <category term="javascript" scheme="http://ronaldoxzb.cn/tags/javascript/"/>
+    
+    <category term="v8" scheme="http://ronaldoxzb.cn/tags/v8/"/>
+    
+    <category term="EventLoop" scheme="http://ronaldoxzb.cn/tags/EventLoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript运行原理(二)</title>
+    <link href="http://ronaldoxzb.cn/2022/03/12/js-runtime2/"/>
+    <id>http://ronaldoxzb.cn/2022/03/12/js-runtime2/</id>
+    <published>2022-03-12T09:01:16.000Z</published>
+    <updated>2022-06-10T03:09:32.706Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h4&gt;&lt;img width=&quot;500&quot; align=&quot;center&quot; src=&quot;/images/js-runtime/7.png&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="FrontEnd-Tec" scheme="http://ronaldoxzb.cn/categories/FrontEnd-Tec/"/>
+    
+    
+    <category term="node" scheme="http://ronaldoxzb.cn/tags/node/"/>
+    
+    <category term="javascript" scheme="http://ronaldoxzb.cn/tags/javascript/"/>
+    
+    <category term="v8" scheme="http://ronaldoxzb.cn/tags/v8/"/>
+    
+    <category term="parser" scheme="http://ronaldoxzb.cn/tags/parser/"/>
+    
+    <category term="interpreter" scheme="http://ronaldoxzb.cn/tags/interpreter/"/>
+    
+    <category term="compiler" scheme="http://ronaldoxzb.cn/tags/compiler/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript运行原理(一)</title>
+    <link href="http://ronaldoxzb.cn/2022/03/11/js-runtime1/"/>
+    <id>http://ronaldoxzb.cn/2022/03/11/js-runtime1/</id>
     <published>2022-03-11T14:29:32.000Z</published>
-    <updated>2022-03-14T09:33:43.617Z</updated>
+    <updated>2022-06-10T03:09:32.706Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://www.bilibili.com/video/BV1vh411Z7QG&quot;</summary>
+    <summary type="html">&lt;h4 id=&quot;JS-的语言组成&quot;&gt;&lt;a href=&quot;#JS-的语言组成&quot; class=&quot;headerlink&quot; title=&quot;JS 的语言组成&quot;&gt;&lt;/a&gt;JS 的语言组成&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;基本语法：C&lt;/li&gt;
+&lt;li&gt;数据类型: Java</summary>
         
       
     
@@ -56,7 +215,7 @@
     <link href="http://ronaldoxzb.cn/2022/03/08/web-attack/"/>
     <id>http://ronaldoxzb.cn/2022/03/08/web-attack/</id>
     <published>2022-03-08T15:41:32.000Z</published>
-    <updated>2022-03-14T09:33:43.617Z</updated>
+    <updated>2022-06-10T03:09:32.706Z</updated>
     
     
       
@@ -88,7 +247,7 @@
     <link href="http://ronaldoxzb.cn/2022/02/10/npm-publish/"/>
     <id>http://ronaldoxzb.cn/2022/02/10/npm-publish/</id>
     <published>2022-02-10T10:14:01.000Z</published>
-    <updated>2022-03-14T09:33:43.617Z</updated>
+    <updated>2022-06-10T03:09:32.706Z</updated>
     
     
       
@@ -115,7 +274,7 @@
     <link href="http://ronaldoxzb.cn/2021/10/14/wx-jssdk/"/>
     <id>http://ronaldoxzb.cn/2021/10/14/wx-jssdk/</id>
     <published>2021-10-14T15:03:32.000Z</published>
-    <updated>2022-03-14T09:33:43.617Z</updated>
+    <updated>2022-06-10T03:09:32.706Z</updated>
     
     
       
@@ -144,7 +303,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/31/docker/"/>
     <id>http://ronaldoxzb.cn/2021/08/31/docker/</id>
     <published>2021-08-31T10:03:32.000Z</published>
-    <updated>2022-03-14T09:33:43.617Z</updated>
+    <updated>2022-06-10T03:09:32.706Z</updated>
     
     
       
@@ -170,7 +329,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/31/compose-deploy/"/>
     <id>http://ronaldoxzb.cn/2021/08/31/compose-deploy/</id>
     <published>2021-08-31T09:03:32.000Z</published>
-    <updated>2022-03-14T09:33:43.617Z</updated>
+    <updated>2022-06-10T03:09:32.706Z</updated>
     
     
       
@@ -203,7 +362,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/26/egg-01/"/>
     <id>http://ronaldoxzb.cn/2021/08/26/egg-01/</id>
     <published>2021-08-26T18:03:32.000Z</published>
-    <updated>2022-03-14T09:33:43.617Z</updated>
+    <updated>2022-06-10T03:09:32.706Z</updated>
     
     
       
@@ -234,7 +393,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/25/book-record/"/>
     <id>http://ronaldoxzb.cn/2021/08/25/book-record/</id>
     <published>2021-08-25T16:03:32.000Z</published>
-    <updated>2022-03-14T09:33:43.617Z</updated>
+    <updated>2022-06-10T03:09:32.706Z</updated>
     
     
       
@@ -259,7 +418,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/21/object-type/"/>
     <id>http://ronaldoxzb.cn/2021/08/21/object-type/</id>
     <published>2021-08-21T15:03:32.000Z</published>
-    <updated>2022-03-14T09:33:43.617Z</updated>
+    <updated>2022-06-10T03:09:32.706Z</updated>
     
     
       
@@ -284,7 +443,7 @@
     <link href="http://ronaldoxzb.cn/2020/08/20/hello-world/"/>
     <id>http://ronaldoxzb.cn/2020/08/20/hello-world/</id>
     <published>2020-08-20T20:03:32.000Z</published>
-    <updated>2022-03-14T09:33:43.617Z</updated>
+    <updated>2022-06-10T03:09:32.706Z</updated>
     
     
       

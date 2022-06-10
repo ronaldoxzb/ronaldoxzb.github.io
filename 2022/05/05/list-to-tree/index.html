@@ -11,7 +11,7 @@
   
   <title>
     
-      javascript运行原理 
+      一维List转树形结构 
       
       
       |
@@ -138,11 +138,11 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">javascript运行原理</div>
+      <div class="post-title">一维List转树形结构</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="更新时间"></i>
-          2022-03-11 14:29:32
+          2022-05-05 17:24:32
         </span>
         
               <span class="post-categories">
@@ -160,38 +160,26 @@ MathJax = {
                 <i class="iconfont icon-tags" title="标签"></i>
                 
                 <span class="span--tag">
-                  <a href="/tags/node/" title="node">
-                    <b>#</b> node
-                  </a>
-                </span>
-                
-                <span class="span--tag">
                   <a href="/tags/javascript/" title="javascript">
                     <b>#</b> javascript
                   </a>
                 </span>
                 
                 <span class="span--tag">
-                  <a href="/tags/v8/" title="v8">
-                    <b>#</b> v8
+                  <a href="/tags/tree/" title="tree">
+                    <b>#</b> tree
                   </a>
                 </span>
                 
                 <span class="span--tag">
-                  <a href="/tags/parser/" title="parser">
-                    <b>#</b> parser
+                  <a href="/tags/object-reference/" title="object-reference">
+                    <b>#</b> object-reference
                   </a>
                 </span>
                 
                 <span class="span--tag">
-                  <a href="/tags/interpreter/" title="interpreter">
-                    <b>#</b> interpreter
-                  </a>
-                </span>
-                
-                <span class="span--tag">
-                  <a href="/tags/compiler/" title="compiler">
-                    <b>#</b> compiler
+                  <a href="/tags/list/" title="list">
+                    <b>#</b> list
                   </a>
                 </span>
                 
@@ -199,14 +187,18 @@ MathJax = {
           
       </div>
       <div class="markdown-body">
-        <p><img src="https://www.bilibili.com/video/BV1vh411Z7QG" alt="参考视频"></p>
+        <h3 id="一维-list-生成树行结构"><a href="#一维-list-生成树行结构" class="headerlink" title="一维 list 生成树行结构"></a>一维 list 生成树行结构</h3><h4 id="原始数据"><a href="#原始数据" class="headerlink" title="原始数据"></a>原始数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> datas = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">0</span>, <span class="attr">parentId</span>: <span class="literal">null</span>, <span class="attr">name</span>: <span class="string">&quot;一级菜单A&quot;</span>, <span class="attr">rank</span>: <span class="number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">parentId</span>: <span class="number">0</span>, <span class="attr">name</span>: <span class="string">&quot;一级菜单A&quot;</span>, <span class="attr">rank</span>: <span class="number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">parentId</span>: <span class="number">0</span>, <span class="attr">name</span>: <span class="string">&quot;一级菜单B&quot;</span>, <span class="attr">rank</span>: <span class="number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">parentId</span>: <span class="number">0</span>, <span class="attr">name</span>: <span class="string">&quot;一级菜单C&quot;</span>, <span class="attr">rank</span>: <span class="number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">parentId</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&quot;二级菜单A-A&quot;</span>, <span class="attr">rank</span>: <span class="number">2</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">5</span>, <span class="attr">parentId</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&quot;二级菜单A-B&quot;</span>, <span class="attr">rank</span>: <span class="number">2</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">6</span>, <span class="attr">parentId</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&quot;二级菜单B-A&quot;</span>, <span class="attr">rank</span>: <span class="number">2</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">7</span>, <span class="attr">parentId</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;三级菜单A-A-A&quot;</span>, <span class="attr">rank</span>: <span class="number">3</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">8</span>, <span class="attr">parentId</span>: <span class="number">7</span>, <span class="attr">name</span>: <span class="string">&quot;四级菜单A-A-A-A&quot;</span>, <span class="attr">rank</span>: <span class="number">4</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">9</span>, <span class="attr">parentId</span>: <span class="number">8</span>, <span class="attr">name</span>: <span class="string">&quot;五级菜单A-A-A-A-A&quot;</span>, <span class="attr">rank</span>: <span class="number">5</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">10</span>, <span class="attr">parentId</span>: <span class="number">9</span>, <span class="attr">name</span>: <span class="string">&quot;六级菜单A-A-A-A-A-A&quot;</span>, <span class="attr">rank</span>: <span class="number">6</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">11</span>, <span class="attr">parentId</span>: <span class="number">10</span>, <span class="attr">name</span>: <span class="string">&quot;七级菜单A-A-A-A-A-A-A&quot;</span>, <span class="attr">rank</span>: <span class="number">7</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">12</span>, <span class="attr">parentId</span>: <span class="number">11</span>, <span class="attr">name</span>: <span class="string">&quot;八级菜单A-A-A-A-A-A-A-A&quot;</span>, <span class="attr">rank</span>: <span class="number">8</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">13</span>, <span class="attr">parentId</span>: <span class="number">12</span>, <span class="attr">name</span>: <span class="string">&quot;九级菜单A-A-A-A-A-A-A-A-A&quot;</span>, <span class="attr">rank</span>: <span class="number">9</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">14</span>, <span class="attr">parentId</span>: <span class="number">13</span>, <span class="attr">name</span>: <span class="string">&quot;十级菜单A-A-A-A-A-A-A-A-A-A&quot;</span>, <span class="attr">rank</span>: <span class="number">10</span> &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="递归形式转换"><a href="#递归形式转换" class="headerlink" title="递归形式转换"></a>递归形式转换</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">toTree</span> = (<span class="params">arr = [], parentId</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> array = []</span><br><span class="line">    arr.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (item.<span class="property">parentId</span> === parentId) &#123;</span><br><span class="line">            item.<span class="property">children</span> = <span class="title function_">toTree</span>(arr, item.<span class="property">id</span>)</span><br><span class="line">            array.<span class="title function_">push</span>(item)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="对象引用遍历实现"><a href="#对象引用遍历实现" class="headerlink" title="对象引用遍历实现"></a>对象引用遍历实现</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 对象引用遍历实现</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; <span class="variable">list</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">toTree</span> = (<span class="params">list</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> map = &#123;&#125;;</span><br><span class="line">  list.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">    map[item.<span class="property">id</span>] = item;</span><br><span class="line">  &#125;);</span><br><span class="line">  list.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> parent = map[item.<span class="property">parentId</span>];</span><br><span class="line">    <span class="keyword">if</span> (parent) &#123;</span><br><span class="line">      (parent.<span class="property">children</span> || (parent.<span class="property">children</span> = [])).<span class="title function_">push</span>(item);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      result.<span class="title function_">push</span>(item);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2022/03/08/web-attack/" target="_self">
+              <a href="/2022/04/26/node-module/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -215,7 +207,7 @@ MathJax = {
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="更新时间"></i>
-              2022-03-11 14:29:32
+              2022-05-05 17:24:32
             </span>
             
                   <span class="post-categories">
@@ -233,38 +225,26 @@ MathJax = {
                     <i class="iconfont icon-tags" title="标签"></i>
                     
                     <span class="span--tag">
-                      <a href="/tags/node/" title="node">
-                        <b>#</b> node
-                      </a>
-                    </span>
-                    
-                    <span class="span--tag">
                       <a href="/tags/javascript/" title="javascript">
                         <b>#</b> javascript
                       </a>
                     </span>
                     
                     <span class="span--tag">
-                      <a href="/tags/v8/" title="v8">
-                        <b>#</b> v8
+                      <a href="/tags/tree/" title="tree">
+                        <b>#</b> tree
                       </a>
                     </span>
                     
                     <span class="span--tag">
-                      <a href="/tags/parser/" title="parser">
-                        <b>#</b> parser
+                      <a href="/tags/object-reference/" title="object-reference">
+                        <b>#</b> object-reference
                       </a>
                     </span>
                     
                     <span class="span--tag">
-                      <a href="/tags/interpreter/" title="interpreter">
-                        <b>#</b> interpreter
-                      </a>
-                    </span>
-                    
-                    <span class="span--tag">
-                      <a href="/tags/compiler/" title="compiler">
-                        <b>#</b> compiler
+                      <a href="/tags/list/" title="list">
+                        <b>#</b> list
                       </a>
                     </span>
                     
@@ -273,11 +253,31 @@ MathJax = {
           </div>
           <div class="post-foot-prev">
             
+              <a href="/2022/05/12/tree-to-list/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
           </div>
         </div>
       
     </div>
     
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4-list-%E7%94%9F%E6%88%90%E6%A0%91%E8%A1%8C%E7%BB%93%E6%9E%84"><span class="toc-text">一维 list 生成树行结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE"><span class="toc-text">原始数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E5%BD%A2%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">递归形式转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%E9%81%8D%E5%8E%86%E5%AE%9E%E7%8E%B0"><span class="toc-text">对象引用遍历实现</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
 
     
       <div class="comments-container">
@@ -352,7 +352,7 @@ MathJax = {
   
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://ronaldoxzb.com">Copyright © ronaldoxzb 2021 | Theme by Oranges | Powered by Hexo</a>
+        <a target="_blank" rel="noopener" href="https://ronaldoxzb.com">Copyright © ronaldoxzb 2022 | Theme by Oranges | Powered by Hexo</a>
         
     </div>
   
@@ -593,12 +593,12 @@ MathJax = {
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + javascript%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86 + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2F2022%2F03%2F11%2Fjs-runtime%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E4%B8%80%E7%BB%B4List%E8%BD%AC%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84 + '&url=' + http%3A%2F%2Fronaldoxzb.cn%2F2022%2F05%2F05%2Flist-to-tree%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/2022/03/11/js-runtime/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://ronaldoxzb.cn/2022/05/05/list-to-tree/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
