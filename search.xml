@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>经典题目</title>
+      <link href="/2022/06/27/lesson1/"/>
+      <url>/2022/06/27/lesson1/</url>
+      
+        <content type="html"><![CDATA[<h3 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h3><h4 id="JavaScript-是一种弱类型脚本语言，所谓弱类型指的是定义变量时，不需要什么类型，在程序运行过程中会自动判断类型。"><a href="#JavaScript-是一种弱类型脚本语言，所谓弱类型指的是定义变量时，不需要什么类型，在程序运行过程中会自动判断类型。" class="headerlink" title="JavaScript 是一种弱类型脚本语言，所谓弱类型指的是定义变量时，不需要什么类型，在程序运行过程中会自动判断类型。"></a>JavaScript 是一种弱类型脚本语言，所谓弱类型指的是定义变量时，不需要什么类型，在程序运行过程中会自动判断类型。</h4><h4 id="ECMAScript-中定义了-6-种原始类型："><a href="#ECMAScript-中定义了-6-种原始类型：" class="headerlink" title="ECMAScript 中定义了 6 种原始类型："></a>ECMAScript 中定义了 6 种原始类型：</h4><ul><li>Boolean</li><li>String</li><li>Number</li><li>Null</li><li>Undefined</li><li>Symbol（ES6 新定义）<br>注意：原始类型不包含 Object。</li><li></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> FrontEnd-Tec </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>树型结构转一维List</title>
       <link href="/2022/05/12/tree-to-list/"/>
       <url>/2022/05/12/tree-to-list/</url>
