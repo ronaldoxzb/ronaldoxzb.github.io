@@ -20,3 +20,29 @@ categories:
 - Symbol（ES6 新定义）
 注意：原始类型不包含 Object。
 - 
+
+#### 
+#### 鉴别类型通用方法
+
+```javascript
+function type(target) { 
+    const ret = typeof(target); 
+    const template = { 
+        "[object Array]": "array",  
+        "[object Object]":"object", 
+        "[object Number]":"number - object", 
+        "[object Boolean]":"boolean - object", 
+        "[object String]":'string-object' 
+    } 
+    if(target === null) { 
+        return 'null'; 
+    } 
+    else if(ret == "object"){ 
+        const str = Object.prototype.toString.call(target); 
+        return template[str]; 
+    } 
+    else{ 
+        return ret; 
+    } 
+} 
+```
