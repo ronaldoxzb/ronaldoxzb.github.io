@@ -2,14 +2,14 @@
 title: 收藏题目
 date: 2022-07-24 19:57:40
 tags:
-  - javascript  
-  - vue 
+  - javascript
+  - vue
   - webpack
 categories:
   - FrontEnd-Tec
 ---
 
-### vue基础
+### vue 基础
 
 #### v-if v-show
 
@@ -53,6 +53,51 @@ categories:
 
 #### keep-alive 原理
 
+### http1.1 https1.2 的区别
+
+#### 浏览器缓存策略
+
+- 浏览器每次发起请求，都会先在浏览器缓存中查找该请求的结果以及缓存标识
+- 浏览器每次拿到返回的请求结果都会将该结果和缓存标识存入浏览器缓存中
+
+##### 强缓存
+
+强缓存不会向服务器发送请求，直接从缓存中读取资源，在 chorme 控制台 Network 选项中可以看到该请求返回 200 的状态码，并且 Size 显示 from disk cache 或 from memory cache。强缓存可以通过设置两种 HTTP Header 实现：Expries 和 Cache-Control
+
+- Expires
+  缓存过期时间，用来指定资源到期的时间，是服务器端的具体时间点。Expires = max-age + 请求时间，需要和 -Last-modified 结合使用。Expires 是 Web 服务器响应消息头字段，在响应 http 请求时告诉浏览器在过期时间前浏览器可以直接从缓存中取数据，无需再次请求。
+  Tips：Expires 受限于本地时间，如果修改了本地时间，可能会造成缓存失效。
+- Cache-Control
+  Cache-Control 可以在请求或者响应头中设置，并且可以组合多种指令：
+
+##### 协商缓存
+
+- 协商缓存生效，返回 304 和 Not Modified
+ 首先，浏览器发起 http 请求后，浏览器缓存结果失效，只返回了缓存标识；然后，客户端携带该缓存标识向服务器发起 http 请求；接着，服务器发现请求的资源没有更新，返回 304；最后，客户端从缓存中获取结果
+- 协商缓存失效，返回 200 和 请求结果
+ 首先，浏览器发起 http 请求后，浏览器缓存结果失效，只返回了缓存标识；然后，客户端写到该缓存标识向服务器发起 http 请求；接着，服务器发现请求的资源更新了，返回 200 和 请求结果；最后，将该请求的请求结果和缓存标识存入浏览器缓存中
+ 协商缓存可以通过设置两种 HTTP Header 实现：Last-Modified 和 ETag：
+- Last-Modified 和 If-Modified-Since
+ 浏览器在第一次访问资源时，服务器返回资源的同时，在 response header 中添加 Last-Modified 的 header，值是这个资源在服务器上的最后修改时间，浏览器接收后缓存文件和 header；
+ 当浏览器下次请求这个资源，浏览器检测到有 Last-Modified 这个 header，于是添加 If-Modified-Since 这个 header，值就是 Last-Modified 中的值；服务器再次收到这个资源请求，会根据 If-Modified-Since 中的值与服务器中这个资源的最后修改时间对比，如果没有变化，返回 304 和 空的响应体，直接从缓存中读取，如果 If-Modified-Since 的时间小于服务器中这个资源的最后修改时间，说明文件有更新，于是返回新的资源文件和 200
+ 但是 Last-Modified 存在一些问题：
+ *如果本地打开缓存文件，即使没有对文件进行修改，但还是会造成 Last-Modified 被修改，服务端不能命中缓存导致发送相同的资源 * 因为 Last-Modified 只能以秒计时，如果再不可感知的时间内完成修改文件，那么服务端会认为资源还是命中了，不会返回正确的资源*
+- ETag 和 If-None-Match
+  ETag 是服务器响应请求时返回当前资源的一个唯一标识（由服务器生成），只要资源有变化，ETag 就会重新生成。
+  浏览器在下一次加载资源向服务器发送请求时，会将上一次返回的 ETag 值放到 request header 里的 If-None-Match 里，服务器只需要比较客户端传来的 If-None-Match 跟自己服务器上该资源的 ETag 是否一致，就能知道资源相对于客户端是否被修改过。如果发现匹配不上，那么直接常规的 200 形式将新的资源发给客户端；如果 ETag 是一致的，则直接返回 304 只会客户端直接使用缓存即可
+
+  `在精确度上， ETag 要优于 Last-Modified 在性能上，Last-Modified 要优于 ETag 在优先级上，服务器校验优先考虑 ETag`
+
+##### 缓存位置
+
+- Service Worker
+- Memory Cache
+- Disk Cache
+- Push Cache
+
+##### 缓存机制
+
+**强制缓存优先于协商缓存进行，若强制缓存生效则直接使用缓存，若不生效则进行协商缓存，协商缓存由服务器决定是否使用缓存，若协商缓存失效，那么代表该请求的缓存失效，返回 200，重新返回资源和缓存标识，再存入浏览器缓存中；生效则返回 304，继续使用缓存**
 #### 如何使用 beforeDestory
 
 - 解除自定义事件 event.$off
