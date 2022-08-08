@@ -1,5 +1,5 @@
 ---
-title: 面试题目
+title: vue webpack相关
 date: 2022-07-24 19:57:40
 tags:
   - javascript  vue webpack
@@ -49,6 +49,8 @@ categories:
 - 缓存组件
 - 频繁切换，不需要重复渲染
 
+#### keep-alive 原理
+
 #### 如何使用 beforeDestory
 
 - 解除自定义事件 event.$off
@@ -90,6 +92,25 @@ categories:
 - 合理使用 computed 应为它会缓存（数据不变不会触发更新）
 - v-for 加 key v-for v-if 不要同时使用 v-for 优先级更改，每次 v-for v-if 会重新计，浪费性能算
 - 自定义事件、dom 事件要及时销毁
+
+#### vue 高阶组件中的通信
+
+- $attrs与$listeners
+
+- $children与$parent 属性
+
+#### vue 是怎么初始化的
+
+- 1、选项合并，处理组件的配置内容，将传入的 options 与构造函数本身的 options 进行合并(用户选项和系统默认的选项进行合并)
+- 2、初始化 vue 实例生命周期相关的属性，定义了比如：root、root、root、parent、children、children、children、refs
+- 3、初始化自定义组件事件的监听,若存在父监听事件,则添加到该实例上
+- 4、初始化 render 渲染所需的 slots、渲染函数等。其实就两件事：插槽的处理 和 $createElm 的声明，也就是 render 函数中的 h 的声明
+- 5、调用 beforeCreate 钩子函数，在这里就能看出一个组件在创建前和后分别做了哪些初始化
+- 6、初始化注入数据，隔代传参时 先 inject。作为一个组件，在要给后辈组件提供数据之前，需要先把祖辈传下来的数据注入进来
+- 7、对 props,methods,data,computed,watch 进行初始化，包括响应式的处理
+- 8、在把祖辈传下来的数据注入进来以后 再初始化 provide
+- 9、调用 created 钩子函数，初始化完成，可以执行挂载了
+- 10、挂载到对应 DOM 元素上。如果组件构造函数设置了 el 选项，会自动挂载，所以就不用再手动调用$mount 去挂载
 
 ### vue router
 
