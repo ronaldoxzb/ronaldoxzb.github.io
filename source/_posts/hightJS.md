@@ -853,46 +853,7 @@ me.sayName()
 console.log(me)
 
 ```
-- 
-```javascript
 
-
-```
-- 
-```javascript
-
-
-```
-- 
-```javascript
-
-
-```
-- 
-```javascript
-
-
-```
-- 
-```javascript
-
-
-```
-- 
-```javascript
-
-
-```
-- 
-```javascript
-
-
-```
-- 
-```javascript
-
-
-```
 - 深度克隆
 
 ```javascript
