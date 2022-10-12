@@ -48,7 +48,16 @@ resume:
       items: [react.js, webpack, ts, nacos, midway.js, rabbitmq, taro.js]
   experience:
     - position: 前端开发leader
-      duration: 2020.3 - 至今
+      duration: 2022.9.19 - 至今
+      company: 恒生电子（云毅)
+      # website: website.com
+      description: 一：负责公司<b>易连通</b>产品重构及相关系统的开发，团队成长等
+      hilights:
+        [
+          目前刚去公司，熟悉业务及相关系统，正在进行新人上岗认证。。。
+        ]
+    - position: 前端开发leader
+      duration: 2020.3.09 - 2022.8.31
       company: Babycare(夕尔控股)
       # website: website.com
       description: 一：负责公司<b>核心产品框架设计、核心代码编写、wiki知识库维护</b> </p>二：<b>制定团队编码规范和git分支提交规范</b>，开发提升工作效率的版本发布脚本工具、node服务等</p>三：理解项目需求，拆分需求，分配开发任务，跟进项目开发进度，协调各部门，配合项目发布事宜等</p>四：制定团队绩效标准，做好团队建设，技术赋能业务，凸显技术价值
