@@ -6,7 +6,7 @@
   <link href="http://ronaldoxzb.cn/atom.xml" rel="self"/>
   
   <link href="http://ronaldoxzb.cn/"/>
-  <updated>2022-09-09T09:34:58.947Z</updated>
+  <updated>2022-10-12T03:19:07.155Z</updated>
   <id>http://ronaldoxzb.cn/</id>
   
   <author>
@@ -17,11 +17,68 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>整活Promise</title>
+    <link href="http://ronaldoxzb.cn/2022/10/09/promise/"/>
+    <id>http://ronaldoxzb.cn/2022/10/09/promise/</id>
+    <published>2022-10-09T17:17:40.000Z</published>
+    <updated>2022-10-12T03:19:07.155Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;romise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="FrontEnd-Tec" scheme="http://ronaldoxzb.cn/categories/FrontEnd-Tec/"/>
+    
+    
+    <category term="javascript" scheme="http://ronaldoxzb.cn/tags/javascript/"/>
+    
+    <category term="es6" scheme="http://ronaldoxzb.cn/tags/es6/"/>
+    
+    <category term="promsie" scheme="http://ronaldoxzb.cn/tags/promsie/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue3基础</title>
+    <link href="http://ronaldoxzb.cn/2022/09/26/vue3/"/>
+    <id>http://ronaldoxzb.cn/2022/09/26/vue3/</id>
+    <published>2022-09-26T15:12:40.000Z</published>
+    <updated>2022-10-12T03:19:07.155Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;h4 id=&quot;模版语法&quot;&gt;&lt;a href=&quot;#模版语法&quot; class=&quot;headerlink&quot; title=&quot;模版语法&quot;&gt;&lt;/a&gt;模版语法&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="+ FrontEnd-Tec" scheme="http://ronaldoxzb.cn/categories/FrontEnd-Tec/"/>
+    
+    
+    <category term="+ javascript + vue3" scheme="http://ronaldoxzb.cn/tags/javascript-vue3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>手写题目</title>
     <link href="http://ronaldoxzb.cn/2022/08/07/hand/"/>
     <id>http://ronaldoxzb.cn/2022/08/07/hand/</id>
     <published>2022-08-07T11:09:40.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -46,7 +103,7 @@
     <link href="http://ronaldoxzb.cn/2022/08/07/company/"/>
     <id>http://ronaldoxzb.cn/2022/08/07/company/</id>
     <published>2022-08-07T10:21:40.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -71,7 +128,7 @@
     <link href="http://ronaldoxzb.cn/2022/07/28/hightJS/"/>
     <id>http://ronaldoxzb.cn/2022/07/28/hightJS/</id>
     <published>2022-07-28T13:40:40.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -96,7 +153,7 @@
     <link href="http://ronaldoxzb.cn/2022/07/24/collect/"/>
     <id>http://ronaldoxzb.cn/2022/07/24/collect/</id>
     <published>2022-07-24T19:57:40.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -125,7 +182,7 @@
     <link href="http://ronaldoxzb.cn/2022/05/12/tree-to-list/"/>
     <id>http://ronaldoxzb.cn/2022/05/12/tree-to-list/</id>
     <published>2022-05-12T10:34:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -156,7 +213,7 @@
     <link href="http://ronaldoxzb.cn/2022/05/05/list-to-tree/"/>
     <id>http://ronaldoxzb.cn/2022/05/05/list-to-tree/</id>
     <published>2022-05-05T17:24:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -187,7 +244,7 @@
     <link href="http://ronaldoxzb.cn/2022/04/26/node-module/"/>
     <id>http://ronaldoxzb.cn/2022/04/26/node-module/</id>
     <published>2022-04-26T13:03:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -214,7 +271,7 @@
     <link href="http://ronaldoxzb.cn/2022/03/15/js-runtime3/"/>
     <id>http://ronaldoxzb.cn/2022/03/15/js-runtime3/</id>
     <published>2022-03-15T19:22:01.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -247,7 +304,7 @@
     <link href="http://ronaldoxzb.cn/2022/03/12/js-runtime2/"/>
     <id>http://ronaldoxzb.cn/2022/03/12/js-runtime2/</id>
     <published>2022-03-12T09:01:16.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -282,7 +339,7 @@
     <link href="http://ronaldoxzb.cn/2022/03/11/js-runtime1/"/>
     <id>http://ronaldoxzb.cn/2022/03/11/js-runtime1/</id>
     <published>2022-03-11T14:29:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -319,7 +376,7 @@
     <link href="http://ronaldoxzb.cn/2022/03/08/web-attack/"/>
     <id>http://ronaldoxzb.cn/2022/03/08/web-attack/</id>
     <published>2022-03-08T15:41:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -351,7 +408,7 @@
     <link href="http://ronaldoxzb.cn/2022/02/10/npm-publish/"/>
     <id>http://ronaldoxzb.cn/2022/02/10/npm-publish/</id>
     <published>2022-02-10T10:14:01.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -378,7 +435,7 @@
     <link href="http://ronaldoxzb.cn/2021/10/14/wx-jssdk/"/>
     <id>http://ronaldoxzb.cn/2021/10/14/wx-jssdk/</id>
     <published>2021-10-14T15:03:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -407,7 +464,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/31/docker/"/>
     <id>http://ronaldoxzb.cn/2021/08/31/docker/</id>
     <published>2021-08-31T10:03:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -433,7 +490,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/31/compose-deploy/"/>
     <id>http://ronaldoxzb.cn/2021/08/31/compose-deploy/</id>
     <published>2021-08-31T09:03:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -466,7 +523,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/26/egg-01/"/>
     <id>http://ronaldoxzb.cn/2021/08/26/egg-01/</id>
     <published>2021-08-26T18:03:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -497,7 +554,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/25/book-record/"/>
     <id>http://ronaldoxzb.cn/2021/08/25/book-record/</id>
     <published>2021-08-25T16:03:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -522,7 +579,7 @@
     <link href="http://ronaldoxzb.cn/2021/08/21/object-type/"/>
     <id>http://ronaldoxzb.cn/2021/08/21/object-type/</id>
     <published>2021-08-21T15:03:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
+    <updated>2022-10-12T03:19:07.155Z</updated>
     
     
       
@@ -539,31 +596,6 @@
     
     
     <category term="javascript" scheme="http://ronaldoxzb.cn/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>为什么要有node.js中间层？</title>
-    <link href="http://ronaldoxzb.cn/2020/08/20/hello-world/"/>
-    <id>http://ronaldoxzb.cn/2020/08/20/hello-world/</id>
-    <published>2020-08-20T20:03:32.000Z</published>
-    <updated>2022-09-09T09:34:58.947Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;为什么要有node-js中间层？&quot;&gt;&lt;a href=&quot;#为什么要有node-js中间层？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="BackEnd-Tec" scheme="http://ronaldoxzb.cn/categories/BackEnd-Tec/"/>
-    
-    
-    <category term="node" scheme="http://ronaldoxzb.cn/tags/node/"/>
     
   </entry>
   
