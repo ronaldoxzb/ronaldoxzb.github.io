@@ -98,10 +98,10 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # 博客
-# theme: oranges
+theme: oranges
 # theme: cactus
 # 个人
-theme: vita 
+# theme: vita 
 
 feed:
   type: atom
